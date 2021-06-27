@@ -64,6 +64,8 @@ export default class Router<AdditionalDataType extends unknown> {
         this.basePath = "/";
         this.basePath = this.fixPath(newBasePath || "/");
         this.parentRouter = parentRouter || null;
+        
+        this.updateSelfRoutes();
     }
     
     /**
@@ -78,7 +80,8 @@ export default class Router<AdditionalDataType extends unknown> {
             fixedPath += "/";
         }
         
-        console.log(`To fix path! Input: ${ inputPath }. Output: ${ fixedPath }`);
+        // info: DEBUG
+        // console.log(`To fix path! Input: ${ inputPath }. Output: ${ fixedPath }`);
         
         return fixedPath;
     }
@@ -127,6 +130,8 @@ export default class Router<AdditionalDataType extends unknown> {
         if (typeof arg0 === "string") {
             usePath = arg0;
         }
+        
+        usePath = this.fixPath(usePath);
         
         if (useHandler instanceof Router) {
             // Init the corresponding router
@@ -271,7 +276,7 @@ export default class Router<AdditionalDataType extends unknown> {
         // Next up, we're going to sort the middlewares based on their routeIndex, so they're run in the order
         // they are supposed to.
         const orderedMiddlewareList = foundMiddlewares
-            .sort((a, b) => b.route.routeIndex - a.route.routeIndex);
+            .sort((a, b) => a.route.routeIndex - b.route.routeIndex);
         
         let allMiddlewaresSuccessful = true;
         
@@ -346,7 +351,6 @@ export default class Router<AdditionalDataType extends unknown> {
                     request.additionalData!
                 ));
                 
-                console.log("finished with middleware");
                 resolve(true);
             }
         });

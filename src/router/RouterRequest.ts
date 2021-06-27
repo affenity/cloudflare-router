@@ -68,10 +68,4 @@ export default class RouterRequest<AdditionalDataType extends unknown> {
         
         return this.headers;
     }
-    
-    public parseCookies (cookieHeader: string): Record<string, string> {
-        console.log(cookieHeader);
-        console.log("To-Do: Parse cookie header!");
-        return {};
-    }
 };

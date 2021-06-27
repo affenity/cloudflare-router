@@ -38,6 +38,7 @@ export default class RouterResponse<AdditionalDataType extends unknown> {
     };
     public routerRequest: RouterRequest<AdditionalDataType>;
     public matchedRoute: Route<AdditionalDataType> | null;
+    public locals: Record<any, any>;
     
     constructor (routerRequest: RouterRequest<AdditionalDataType>) {
         this.responseOptions = {
@@ -53,6 +54,7 @@ export default class RouterResponse<AdditionalDataType extends unknown> {
         
         this.routerRequest = routerRequest;
         this.matchedRoute = null;
+        this.locals = {};
     }
     
     public setMatchedRoute (route: Route<AdditionalDataType>) {
