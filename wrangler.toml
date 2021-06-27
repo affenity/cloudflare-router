@@ -1,7 +1,0 @@
-name = "cloudflare-router-v2"
-type = 'webpack'
-account_id = 'd1619cf7836ce063a579d7a5c6bcf8ac'
-route = 'https://delfil.no/*'
-zone_id = 'ce8a2e4403737d0888af0bf1026adbc8'
-workers_dev = true
-target_type = "webpack"
