@@ -78,8 +78,10 @@ export default class RouterRequest<AdditionalDataType extends unknown> {
         this.bodyUsed = this.incomingRequest.bodyUsed;
         this.body = this.incomingRequest.body || null;
         this.headers = {};
-        
         this.matchedRoute = null;
+        
+        // Parsing the headers and adding them to the object above
+        this.parseHeaders();
     }
     
     /**
