@@ -45,26 +45,6 @@ entryRouter.use("/*",async (a, b, c, next) => {
     next();
 });
 
-entryRouter.get("/has-touched", (req, res) => {
-    console.log(`[${Date.now()}] handling request!`);
-    console.log(res.locals);
-    const hasTouched = res.locals.hasTouched;
-
-    console.log(`HAS TOUCHED: ${hasTouched}`);
-
-    return res.text(hasTouched ? "yes" : "no");
-});
-
-describe("testing path functionality", function () {
-    it("should return \"yes\" that the middleware is working", async function () {
-        const res = await req("/has-touched");
-
-        console.log(res);
-
-        expect(res.body).toBe("yes");
-    });
-});
-
 describe("Testing high-level cloudflare-router", function () {
     const request = (path, method = "GET") => entryRouter.serveRequest(createOptions(path, {method}))
         .then(d => ({

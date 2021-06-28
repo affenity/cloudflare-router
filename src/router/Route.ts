@@ -35,7 +35,6 @@ export interface RouteOptions<AdditionalDataType extends unknown> {
 export type RouteFunctionalHandler<AdditionalDataType extends unknown> = (
     request: RouterRequest<AdditionalDataType>,
     response: RouterResponse<AdditionalDataType>,
-    additionalData: AdditionalDataType,
     next?: (abort?: boolean) => void
 ) => void;
 export type RouteHandler<AdditionalDataType extends unknown> =

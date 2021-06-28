@@ -386,8 +386,7 @@ export default class Router<AdditionalDataType extends unknown> {
         // Finally, as all middlewares are run, we're going to call the response handler
         await (responseHandler.route.handler as RouteFunctionalHandler<AdditionalDataType>)(
             routerRequest,
-            routerResponse,
-            routerRequest.additionalData!
+            routerResponse
         );
         
         return this.finishResponse(routerRequest, routerResponse);
@@ -432,23 +431,21 @@ export default class Router<AdditionalDataType extends unknown> {
             
             // If length is 4, it means they want to wait until next() is called
             // If it's 3, just await promise and continue!
-            const hasNextCallback = middlewareHandler.length === 4;
+            const hasNextCallback = middlewareHandler.length === 3;
             
             
             if (hasNextCallback) {
                 middlewareHandler(
                     request,
                     response,
-                    request.additionalData!,
-                    (abort?: boolean) => {
-                        return resolve(!abort);
+                    (proceed = true) => {
+                        return resolve(proceed);
                     }
                 );
             } else {
                 await (async () => middlewareHandler(
                     request,
-                    response,
-                    request.additionalData!
+                    response
                 ));
                 
                 resolve(true);

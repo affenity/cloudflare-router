@@ -78,11 +78,11 @@ const router = new Router();
 
 // This middleware will be called for every request to your-website.com/
 // but just that path. 
-router.use((req, res, additionalData, next) => {
+router.use((req, res, next) => {
     res.locals.middlewareUsed = true;
     
     // If you want it to end at this middleware (no further processing)
-    // change it to next(true). For example if auth failed.
+    // change it to next(false). For example if auth failed.
     next();
 });
 
@@ -95,7 +95,7 @@ router.use((req, res, additionalData, next) => {
 
 // To make it run on every path (and sub-paths, if you can call it that)
 // you need to add the path pattern, like this:
-router.use("/*", (req, res, additionalData, next) => {
+router.use("/*", (req, res, next) => {
     res.locals.middlewareUsed = true;
     
     next();
@@ -114,7 +114,7 @@ router.use("/*", (req, res, additionalData, next) => {
 *Checking that a request has a valid auth key before processing further*
 
 ```typescript
-router.use("/api*", (req, res, additionalData, next) => {
+router.use("/api*", (req, res, next) => {
     const isAuthKeyValid = false;
     
     if (!isAuthKeyValid) {
@@ -126,7 +126,7 @@ router.use("/api*", (req, res, additionalData, next) => {
             });
         
         // This will stop the request processing at this point
-        return next(true);
+        return next(false);
     }
     
     // Otherwise, we'll let them pass!
