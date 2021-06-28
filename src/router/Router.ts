@@ -165,8 +165,6 @@ export default class Router<AdditionalDataType extends unknown> {
             usePath = arg0;
         }
         
-        usePath = this.fixPath(usePath);
-        
         if (useHandler instanceof Router) {
             // Init the corresponding router
             useHandler.init(usePath, this);
@@ -429,8 +427,8 @@ export default class Router<AdditionalDataType extends unknown> {
         return new Promise(async (resolve) => {
             const middlewareHandler = middleware.handler as RouteFunctionalHandler<AdditionalDataType>;
             
-            // If length is 4, it means they want to wait until next() is called
-            // If it's 3, just await promise and continue!
+            // If length is 3, it means they want to wait until next() is called
+            // If it's 2, just await promise and continue!
             const hasNextCallback = middlewareHandler.length === 3;
             
             
