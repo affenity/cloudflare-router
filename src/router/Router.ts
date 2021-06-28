@@ -467,10 +467,12 @@ export default class Router<AdditionalDataType extends unknown> {
         
         
         const routerRequest = new RouterRequest(
+            this,
             incomingRequest,
             additionalData
         );
         const routerResponse = new RouterResponse(
+            this,
             routerRequest
         );
         

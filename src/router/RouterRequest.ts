@@ -1,9 +1,16 @@
 import qs from "querystring";
-import { Methods } from "./Router";
+import Router, { Methods } from "./Router";
 import Route from "./Route";
 
 
 export default class RouterRequest<AdditionalDataType extends unknown> {
+    
+    /**
+     * The (main) router creating this request class instance
+     * @type {Router<AdditionalDataType>}
+     */
+    public mainRouter: Router<AdditionalDataType>;
+    
     /**
      * The actual, "raw" request that was provided in .serveRequest()
      * @type {Request}
@@ -67,7 +74,8 @@ export default class RouterRequest<AdditionalDataType extends unknown> {
     public matchedRoute: Route<AdditionalDataType> | null;
     
     
-    constructor (incomingRequest: Request, additionalData?: AdditionalDataType) {
+    constructor (mainRouter: Router<AdditionalDataType>, incomingRequest: Request, additionalData?: AdditionalDataType) {
+        this.mainRouter = mainRouter;
         this.incomingRequest = incomingRequest;
         this.additionalData = additionalData || null;
         this.url = RouterRequest.fixRequestUrl(this.incomingRequest.url);

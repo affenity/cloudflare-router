@@ -1,5 +1,6 @@
 import RouterRequest from "./RouterRequest";
 import Route from "./Route";
+import Router from "./Router";
 
 
 export declare type ResponseBodyType =
@@ -25,6 +26,12 @@ export type BuiltResponseObject<AdditionalDataType extends unknown> = {
 
 
 export default class RouterResponse<AdditionalDataType extends unknown> {
+    /**
+     * The (main) router creating this response class instance
+     * @type {Router<AdditionalDataType>}
+     */
+    public mainRouter: Router<AdditionalDataType>;
+    
     /**
      * Used internally as a temporary thing to hold on values before the .build() method is called
      * @type {{type: "normal" | "redirect" | "custom", status: string, statusCode: number, headers: Record<string, string>, cookies: Record<string, string>, tasks: Promise<unknown>[], body: ResponseBodyType, redirect: {redirectToUrl?: string, redirectStatusCode?: number}, customResponse?: Response}}
@@ -95,7 +102,8 @@ export default class RouterResponse<AdditionalDataType extends unknown> {
      * Creates a RouterResponse class instance.
      * @param {RouterRequest<AdditionalDataType>} routerRequest
      */
-    constructor (routerRequest: RouterRequest<AdditionalDataType>) {
+    constructor (mainRouter: Router<AdditionalDataType>, routerRequest: RouterRequest<AdditionalDataType>) {
+        this.mainRouter = mainRouter;
         this.responseOptions = {
             type: "normal",
             status: "OK",
@@ -262,15 +270,10 @@ export default class RouterResponse<AdditionalDataType extends unknown> {
      */
     build (): BuiltResponseObject<AdditionalDataType> {
         let finalResponse: null | Response = null;
-        const mainRouter = this.routerRequest.matchedRoute!.router.getMainRouter();
-        
-        if (!mainRouter) {
-            throw new Error(`Failed to retrieve main router!`);
-        }
         
         
-        if (mainRouter.customResponseBuilder) {
-            finalResponse = mainRouter.customResponseBuilder(this);
+        if (this.mainRouter.customResponseBuilder) {
+            finalResponse = this.mainRouter.customResponseBuilder(this);
         } else if (this.responseOptions.type === "redirect") {
             finalResponse = Response.redirect(
                 this.responseOptions.redirect.redirectToUrl!,
