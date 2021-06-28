@@ -119,6 +119,19 @@ export default class RouterResponse<AdditionalDataType extends unknown> {
         this.matchedRoute = route;
     }
     
+    
+    /**
+     * Adds a header entry to the response
+     * @param {string} name
+     * @param {string} value
+     * @returns {this}
+     */
+    public setHeader (name: string, value: string): this {
+        this.responseOptions.headers[name] = value;
+        
+        return this;
+    }
+    
     /**
      * Stringifies the input data into JSON and sends to the client (also automatically sets content-type to json)
      * @param data

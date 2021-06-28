@@ -344,18 +344,6 @@ export default class Router<AdditionalDataType extends unknown> {
             .find(s => !!s);
         
         
-        // We can't return a response if there was no response handler for the request, so we're creating an error
-        if (!responseHandler) {
-            throw new Error(`Could not find a response handler for the request!`);
-        }
-        
-        
-        // Updating our response/request objects so they're up-to-speed about the incoming request
-        routerRequest.setMatchedParams(responseHandler.match);
-        routerRequest.setMatchedRoute(responseHandler.route);
-        routerResponse.setMatchedRoute(responseHandler.route);
-        
-        
         // Next up, we're going to sort the middlewares based on their routeIndex, so they're run in the order
         // they are supposed to.
         const orderedMiddlewareList = foundMiddlewares
@@ -380,6 +368,17 @@ export default class Router<AdditionalDataType extends unknown> {
         if (!allMiddlewaresSuccessful) {
             return this.finishResponse(routerRequest, routerResponse);
         }
+        
+        // We can't return a response if there was no response handler for the request, so we're creating an error
+        if (!responseHandler) {
+            throw new Error(`Could not find a response handler for the request!`);
+        }
+        
+        
+        // Updating our response/request objects so they're up-to-speed about the incoming request
+        routerRequest.setMatchedParams(responseHandler.match);
+        routerRequest.setMatchedRoute(responseHandler.route);
+        routerResponse.setMatchedRoute(responseHandler.route);
         
         // Finally, as all middlewares are run, we're going to call the response handler
         await (responseHandler.route.handler as RouteFunctionalHandler<AdditionalDataType>)(
