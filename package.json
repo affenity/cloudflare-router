@@ -9,13 +9,16 @@
   "private": false,
   "devDependencies": {
     "@types/node": "^15.6.1",
-    "@typescript-eslint/eslint-plugin": "^4.25.0",
-    "@typescript-eslint/parser": "^4.25.0",
-    "eslint": "^7.27.0",
+    "@typescript-eslint/eslint-plugin": "^4.28.0",
+    "@typescript-eslint/parser": "^4.28.0",
+    "eslint": "^7.29.0",
     "eslint-plugin-security": "^1.4.0",
-    "jest": "^27.0.3",
+    "jest": "^27.0.5",
     "joi": "^17.4.0",
-    "typescript": "^4.3.2"
+    "typedoc": "^0.21.2",
+    "typedoc-plugin-markdown": "^3.10.2",
+    "typedoc-plugin-markdown-pages": "^0.3.0",
+    "typescript": "^4.3.4"
   },
   "dependencies": {
     "@cloudflare/workers-types": "^2.2.2",
@@ -23,7 +26,13 @@
     "url-pattern": "^1.0.3"
   },
   "scripts": {
+    "test": "jest",
     "build": "tsc --skipLibCheck",
-    "postinstall": "yarn build"
+    "prepublish": "yarn build",
+    "create-docs": "typedoc --plugin typedoc-plugin-markdown --hideBreadcrumbs --namedAnchors --excludeExternals --out docs src && mkdocs build"
+  },
+  "jest": {
+    "coverageDirectory": "./coverage/",
+    "collectCoverage": true
   }
 }

@@ -24,6 +24,11 @@ export default class RoutePath<AdditionalDataType> {
      */
     public inputPath: string;
     
+    /**
+     * Creates a RoutePath for a Route object, which is used to handle anything path-related for a route
+     * @param {Route<AdditionalDataType>} route
+     * @param {string} inputPath
+     */
     constructor (route: Route<AdditionalDataType>, inputPath: string) {
         this.route = route;
         this.inputPath = inputPath;

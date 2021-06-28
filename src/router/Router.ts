@@ -15,7 +15,7 @@ export interface RouterOptions<AdditionalDataType extends unknown> {
     basePath?: string;
     waterfallHandling?: boolean;
     parent?: Router<AdditionalDataType>;
-    customResponseBuilder?: (routerResponse: RouterResponse<AdditionalDataType>) => Response;
+    customResponseBuilder?: (routerResponse: RouterResponse<AdditionalDataType>) => any;
 }
 
 
@@ -48,18 +48,35 @@ export default class Router<AdditionalDataType extends unknown> {
      */
     public isMainRouter: boolean;
     
+    /**
+     * If you want to build your own responses from the data collected from your application, you do it here
+     * The only argument in the callback function is the RouterResponse instance.
+     * @type {RouterOptions<AdditionalDataType>["customResponseBuilder"]}
+     */
     public customResponseBuilder: RouterOptions<AdditionalDataType>["customResponseBuilder"];
     
     
+    /**
+     * Creates a new Router. Only one router can be used for .serveRequest(), attempting to use multiple routers for
+     * this will result in an error.
+     * @param {RouterOptions<AdditionalDataType>} options
+     */
     constructor (options?: RouterOptions<AdditionalDataType>) {
         this.basePath = options?.basePath ?? "/";
         this.isWaterfallHandling = options?.waterfallHandling ?? false;
+        this.customResponseBuilder = options?.customResponseBuilder ?? undefined;
         this.routes = [];
         this.parentRouter = options?.parent ?? null;
         this.mainRouter = null;
         this.isMainRouter = false;
     }
     
+    /**
+     * Used internally when the router.use() method is called to update the descendants of the router (all connected
+     * routers and routes)
+     * @param {string} newBasePath
+     * @param {Router<AdditionalDataType>} parentRouter
+     */
     public init (newBasePath: string, parentRouter?: Router<AdditionalDataType>) {
         this.basePath = "/";
         this.basePath = this.fixPath(newBasePath || "/");
@@ -86,6 +103,9 @@ export default class Router<AdditionalDataType extends unknown> {
         return fixedPath;
     }
     
+    /**
+     * Updates the routes this router has set up. Used internally on router.init() (which is also called internally)
+     */
     public updateSelfRoutes () {
         const newRoutes: Route<AdditionalDataType>[] = [];
         
@@ -104,6 +124,13 @@ export default class Router<AdditionalDataType extends unknown> {
         this.routes = newRoutes;
     }
     
+    /**
+     * Used internally as a standardized way of registering routes. Normally you want to use .get() or .post(), but
+     * this method is also available. This will only create a route, not apply it to the router. Use
+     * router.createRouteAndAdd() to add the route to the router automatically.
+     * @param {RouteOptions<AdditionalDataType>} options
+     * @returns {Route<AdditionalDataType>}
+     */
     public createRoute (options: RouteOptions<AdditionalDataType>): Route<AdditionalDataType> {
         return new Route(
             this,
@@ -111,6 +138,13 @@ export default class Router<AdditionalDataType extends unknown> {
         );
     }
     
+    
+    /**
+     * Creates a route and adds it to the current router instance. Used internally to standardize the way of creating
+     * routes. Normally you'll want to use .get() or .post() to set up routes.
+     * @param {RouteOptions<AdditionalDataType>} options
+     * @returns {Route<AdditionalDataType>}
+     */
     public createRouteAndAdd (options: RouteOptions<AdditionalDataType>): Route<AdditionalDataType> {
         const createdRoute = this.createRoute(options);
         this.routes.push(createdRoute);
@@ -146,6 +180,11 @@ export default class Router<AdditionalDataType extends unknown> {
         });
     }
     
+    /**
+     * Makes it easier to set up a batch of .use "commands". Provide the array with (optional) pathname and the
+     * handler for it.
+     * @param {{path?: string, handler: RouteHandler<AdditionalDataType>}[]} list
+     */
     public useBulk (list: { path?: string; handler: RouteHandler<AdditionalDataType>; }[]): void {
         for (let i = 0; i < list.length; i++) {
             const listEntry = list[i];
@@ -153,6 +192,10 @@ export default class Router<AdditionalDataType extends unknown> {
         }
     }
     
+    /**
+     * Used internally, which will declare this router as the main router. Note there can only be one main router,
+     * otherwise unexpected issues can arise, and will most likely throw errors.
+     */
     assignSelfAsMainRouter (): void {
         if (this.mainRouter !== null) {
             throw new Error(`Cannot assign self router as the main router when there is already another router instance considered a main one!`);
@@ -163,6 +206,12 @@ export default class Router<AdditionalDataType extends unknown> {
         // Update all descendants
     }
     
+    /**
+     * Used internally to recursively look for routes that match the path and method. Will return anything that matches
+     * regardless if it's a middleware or not. Anything that's a route will be returned as long as it matches.
+     * @param {RouterRequest<AdditionalDataType>} request
+     * @returns {MatchingRoute<AdditionalDataType>[]}
+     */
     public findMatchingRoutes (request: RouterRequest<AdditionalDataType>): MatchingRoute<AdditionalDataType>[] {
         let foundMatching: MatchingRoute<AdditionalDataType>[] = [];
         
@@ -187,6 +236,11 @@ export default class Router<AdditionalDataType extends unknown> {
         return foundMatching;
     }
     
+    /**
+     * Adds a handler for a request that hits this path using the GET HTTP method.
+     * @param {string} path
+     * @param {RouteHandler<AdditionalDataType>} handler
+     */
     public get (path: string, handler: RouteHandler<AdditionalDataType>): void {
         this.createRouteAndAdd({
             path,
@@ -196,6 +250,11 @@ export default class Router<AdditionalDataType extends unknown> {
         });
     }
     
+    /**
+     * Adds a handler for a request that hits this path using the POST HTTP method.
+     * @param {string} path
+     * @param {RouteHandler<AdditionalDataType>} handler
+     */
     public post (path: string, handler: RouteHandler<AdditionalDataType>): void {
         this.createRouteAndAdd({
             path,
@@ -205,6 +264,11 @@ export default class Router<AdditionalDataType extends unknown> {
         });
     }
     
+    /**
+     * Adds a handler for a request that hits this path using the OPTIONS HTTP method.
+     * @param {string} path
+     * @param {RouteHandler<AdditionalDataType>} handler
+     */
     public options (path: string, handler: RouteHandler<AdditionalDataType>): void {
         this.createRouteAndAdd({
             path,
@@ -214,6 +278,11 @@ export default class Router<AdditionalDataType extends unknown> {
         });
     }
     
+    /**
+     * Adds a handler for a request that hits this path using the HEAD HTTP method.
+     * @param {string} path
+     * @param {RouteHandler<AdditionalDataType>} handler
+     */
     public head (path: string, handler: RouteHandler<AdditionalDataType>): void {
         this.createRouteAndAdd({
             path,
@@ -223,6 +292,11 @@ export default class Router<AdditionalDataType extends unknown> {
         });
     }
     
+    /**
+     * Adds a handler for a request that hits this path using the DELETE HTTP method.
+     * @param {string} path
+     * @param {RouteHandler<AdditionalDataType>} handler
+     */
     public delete (path: string, handler: RouteHandler<AdditionalDataType>): void {
         this.createRouteAndAdd({
             path,
@@ -232,6 +306,11 @@ export default class Router<AdditionalDataType extends unknown> {
         });
     }
     
+    /**
+     * Adds a handler for a request that hits this path regardless of the method used.
+     * @param {string} path
+     * @param {RouteHandler<AdditionalDataType>} handler
+     */
     public any (path: string, handler: RouteHandler<AdditionalDataType>): void {
         this.createRouteAndAdd({
             path,
@@ -241,6 +320,12 @@ export default class Router<AdditionalDataType extends unknown> {
         });
     }
     
+    /**
+     * Used internally for further processing of the request (and getting a response from the application)
+     * @param {RouterRequest<AdditionalDataType>} routerRequest
+     * @param {RouterResponse<AdditionalDataType>} routerResponse
+     * @returns {Promise<BuiltResponseObject<AdditionalDataType>>}
+     */
     public async processRequest (
         routerRequest: RouterRequest<AdditionalDataType>,
         routerResponse: RouterResponse<AdditionalDataType>
@@ -308,6 +393,12 @@ export default class Router<AdditionalDataType extends unknown> {
         return this.finishResponse(routerRequest, routerResponse);
     }
     
+    /**
+     * Used internally when the response instance is finalized and ready to return the response data.
+     * @param {RouterRequest<AdditionalDataType>} _request
+     * @param {RouterResponse<AdditionalDataType>} response
+     * @returns {Promise<BuiltResponseObject<AdditionalDataType>>}
+     */
     public async finishResponse (
         _request: RouterRequest<AdditionalDataType>,
         response: RouterResponse<AdditionalDataType>
@@ -322,6 +413,15 @@ export default class Router<AdditionalDataType extends unknown> {
         return builtResponseOptions;
     }
     
+    /**
+     * Used internally when wanting to execute a middleware (running it, not.. beheading it.. jeez). It returns a
+     * promise which contains a boolean indicating the success status. If one middleware is failing or wants to abort
+     * further processing, next(true) is used to indicate this.
+     * @param {Route<AdditionalDataType>} middleware
+     * @param {RouterRequest<AdditionalDataType>} request
+     * @param {RouterResponse<AdditionalDataType>} response
+     * @returns {Promise<boolean>}
+     */
     public async executeMiddleware (
         middleware: Route<AdditionalDataType>,
         request: RouterRequest<AdditionalDataType>,
@@ -356,11 +456,18 @@ export default class Router<AdditionalDataType extends unknown> {
         });
     }
     
+    /**
+     * The method to serve the incoming request and pass it on to cloudflare-router for processing. Use only this
+     * method unless you know what you're doing.
+     * @param {Request} incomingRequest
+     * @param {AdditionalDataType} additionalData
+     * @returns {Promise<BuiltResponseObject<AdditionalDataType>>}
+     */
     public async serveRequest (
         incomingRequest: Request,
         additionalData: AdditionalDataType
     ): Promise<BuiltResponseObject<AdditionalDataType>> {
-        if (!this.isMainRouter) {
+        if (!this.mainRouter && !this.isMainRouter) {
             this.assignSelfAsMainRouter();
         }
         
@@ -379,15 +486,20 @@ export default class Router<AdditionalDataType extends unknown> {
         );
     }
     
+    /**
+     * Used internally for getting the router which is considered the main router. There can (*should*) only be one
+     * main router, otherwise unexpected issues may arise, and errors will most likely be thrown.
+     * @returns {Router<AdditionalDataType>}
+     */
     public getMainRouter (): Router<AdditionalDataType> {
         if (this.parentRouter) {
             return this.parentRouter.getMainRouter();
+        }
+        
+        if (this.isMainRouter) {
+            return this;
         } else {
-            if (this.isMainRouter) {
-                return this;
-            } else {
-                throw new Error(`Error! Got to a top-level router that wasn't declared as main router!`);
-            }
+            throw new Error(`Error! Got to a top-level router that wasn't declared as main router!`);
         }
     }
 };

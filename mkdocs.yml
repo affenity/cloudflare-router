@@ -1,0 +1,10 @@
+site_name: Cloudflare-Router
+theme:
+  name: material
+  features:
+    - navigation.instant
+    - navigation.tabs
+    - navigation.sections
+  palette:
+    primary: black
+    accent: light green

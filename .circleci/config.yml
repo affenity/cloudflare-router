@@ -1,0 +1,22 @@
+version: 2.1
+orbs:
+  node: circleci/node@1.1.6
+  codecov: codecov/codecov@1.0.2
+jobs:
+  build-and-test:
+    executor:
+      name: node/default
+    steps:
+      - checkout
+      - node/with-cache:
+          steps:
+            - run: npm install
+            - run: npm run build
+            - run: npm run test
+      - codecov/upload:
+          file: "./coverage/clover.xml"
+          token: 41a6c268-67b1-4d4c-afbb-b6ae40e9c215
+workflows:
+  build-and-test:
+    jobs:
+      - build-and-test

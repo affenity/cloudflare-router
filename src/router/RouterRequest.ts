@@ -4,19 +4,66 @@ import Route from "./Route";
 
 
 export default class RouterRequest<AdditionalDataType extends unknown> {
+    /**
+     * The actual, "raw" request that was provided in .serveRequest()
+     * @type {Request}
+     */
     public incomingRequest: Request;
+    /**
+     * Any additional data that originated from the .serveRequest() method
+     * @type {AdditionalDataType | null}
+     */
     public additionalData: AdditionalDataType | null;
+    /**
+     * The URL that the request hit
+     * @type {string}
+     */
     public url: string;
+    /**
+     * Data about the URL
+     * @type {URL}
+     */
     public urlData: URL;
+    /**
+     * The absolute path that this request was aiming for
+     * @type {string}
+     */
     public path: string;
+    /**
+     * Any query parameters that was included in the request URL
+     * @type {qs.ParsedUrlQuery}
+     */
     public query: qs.ParsedUrlQuery;
+    /**
+     * The HTTP method of the request.
+     * @type {Methods}
+     */
     public method: Methods;
+    /**
+     * Whether the body was used or not
+     * @type {boolean}
+     */
     public bodyUsed: boolean;
+    /**
+     * The body (unprocessed) from the incoming request
+     * @type {unknown}
+     */
     public body?: unknown | null;
+    /**
+     * The headers originating from the request. All names were lowercased (not values, just the header names)
+     * @type {Record<string, string>}
+     */
     public headers: Record<string, string>;
-    public cookies: Record<string, string>;
+    /**
+     * If you set up a /hello/:name route, the value of :name will show up in the matchedParams object
+     * @type {Record<string, string>}
+     */
     public matchedParams?: Record<string, string>;
     
+    /**
+     * The route that matched to this request (if any)
+     * @type {Route<AdditionalDataType> | null}
+     */
     public matchedRoute: Route<AdditionalDataType> | null;
     
     
@@ -31,11 +78,15 @@ export default class RouterRequest<AdditionalDataType extends unknown> {
         this.bodyUsed = this.incomingRequest.bodyUsed;
         this.body = this.incomingRequest.body || null;
         this.headers = {};
-        this.cookies = {};
         
         this.matchedRoute = null;
     }
     
+    /**
+     * Fixes the request URL to make sure it can be processed by the other parts of this library
+     * @param {string} url
+     * @returns {string}
+     */
     static fixRequestUrl (url: string): string {
         const endIndex = url.indexOf("?") > -1 ? url.indexOf("?") : url.length;
         const endChar = url.charAt(endIndex - 1);
@@ -43,10 +94,18 @@ export default class RouterRequest<AdditionalDataType extends unknown> {
         return endChar !== "/" ? [ url.slice(0, endIndex), "/", url.slice(endIndex) ].join("") : url;
     }
     
+    /**
+     * Sets the route that this request matched with
+     * @param {Route<AdditionalDataType>} route
+     */
     setMatchedRoute (route: Route<AdditionalDataType>): void {
         this.matchedRoute = route;
     }
     
+    /**
+     * Sets the params that this request matched with
+     * @param {Record<string, string>} params
+     */
     setMatchedParams (params: Record<string, string>): void {
         this.matchedParams = params;
     }
