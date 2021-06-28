@@ -1,0 +1,2319 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.1, mkdocs-material-7.1.9">
+    
+    
+      
+        <title>Class: default - Cloudflare-Router</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.ca7ac06f.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.f1a3b89f.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#000000">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+    
+      
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="black" data-md-color-accent="light-green">
+  
+    
+    <script>function __prefix(e){return new URL("..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#class-defaultadditionaldatatype" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../index.html" title="Cloudflare-Router" class="md-header__button md-logo" aria-label="Cloudflare-Router" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Cloudflare-Router
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Class: default<AdditionalDataType\>
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../index.html" class="md-tabs__link">
+      Home
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../modules.html" class="md-tabs__link">
+      cloudflare-router
+    </a>
+  </li>
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="router_route.default.html" class="md-tabs__link md-tabs__link--active">
+        Classes
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../interfaces/router_route.routeoptions.html" class="md-tabs__link">
+        Interfaces
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../modules/index.html" class="md-tabs__link">
+        Modules
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../index.html" title="Cloudflare-Router" class="md-nav__button md-logo" aria-label="Cloudflare-Router" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    Cloudflare-Router
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index.html" class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../modules.html" class="md-nav__link">
+        cloudflare-router
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
+      
+      <label class="md-nav__link" for="__nav_3">
+        Classes
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Classes" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Classes
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="router_route.default.html" class="md-nav__link">
+        Class: default<AdditionalDataType\>
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="router_routepath.default.html" class="md-nav__link">
+        Class: default<AdditionalDataType\>
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="router_router.default.html" class="md-nav__link">
+        Class: default<AdditionalDataType\>
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="router_routerrequest.default.html" class="md-nav__link">
+        Class: default<AdditionalDataType\>
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Class: default<AdditionalDataType\>
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="router_routerresponse.default.html" class="md-nav__link md-nav__link--active">
+        Class: default<AdditionalDataType\>
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#type-parameters" class="md-nav__link">
+    Type parameters
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#table-of-contents" class="md-nav__link">
+    Table of contents
+  </a>
+  
+    <nav class="md-nav" aria-label="Table of contents">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#constructors" class="md-nav__link">
+    Constructors
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#properties" class="md-nav__link">
+    Properties
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#methods" class="md-nav__link">
+    Methods
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#constructors_1" class="md-nav__link">
+    Constructors
+  </a>
+  
+    <nav class="md-nav" aria-label="Constructors">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#constructor" class="md-nav__link">
+    constructor
+  </a>
+  
+    <nav class="md-nav" aria-label="constructor">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#type-parameters_1" class="md-nav__link">
+    Type parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parameters" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#properties_1" class="md-nav__link">
+    Properties
+  </a>
+  
+    <nav class="md-nav" aria-label="Properties">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#locals" class="md-nav__link">
+    locals
+  </a>
+  
+    <nav class="md-nav" aria-label="locals">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_1" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#matchedroute" class="md-nav__link">
+    matchedRoute
+  </a>
+  
+    <nav class="md-nav" aria-label="matchedRoute">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_2" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#responseoptions" class="md-nav__link">
+    responseOptions
+  </a>
+  
+    <nav class="md-nav" aria-label="responseOptions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#type-declaration" class="md-nav__link">
+    Type declaration
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_3" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#routerrequest" class="md-nav__link">
+    routerRequest
+  </a>
+  
+    <nav class="md-nav" aria-label="routerRequest">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_4" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#methods_1" class="md-nav__link">
+    Methods
+  </a>
+  
+    <nav class="md-nav" aria-label="Methods">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#addtasks" class="md-nav__link">
+    addTasks
+  </a>
+  
+    <nav class="md-nav" aria-label="addTasks">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_1" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_5" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#build" class="md-nav__link">
+    build
+  </a>
+  
+    <nav class="md-nav" aria-label="build">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#returns_1" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_6" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#json" class="md-nav__link">
+    json
+  </a>
+  
+    <nav class="md-nav" aria-label="json">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_2" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_2" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_7" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#raw" class="md-nav__link">
+    raw
+  </a>
+  
+    <nav class="md-nav" aria-label="raw">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_3" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_3" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_8" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#redirectto" class="md-nav__link">
+    redirectTo
+  </a>
+  
+    <nav class="md-nav" aria-label="redirectTo">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_4" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_4" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_9" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setcontenttype" class="md-nav__link">
+    setContentType
+  </a>
+  
+    <nav class="md-nav" aria-label="setContentType">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_5" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_5" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_10" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setcustomresponse" class="md-nav__link">
+    setCustomResponse
+  </a>
+  
+    <nav class="md-nav" aria-label="setCustomResponse">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_6" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_6" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_11" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setmatchedroute" class="md-nav__link">
+    setMatchedRoute
+  </a>
+  
+    <nav class="md-nav" aria-label="setMatchedRoute">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_7" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_7" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_12" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#status" class="md-nav__link">
+    status
+  </a>
+  
+    <nav class="md-nav" aria-label="status">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_8" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_8" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_13" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#statuscode" class="md-nav__link">
+    statusCode
+  </a>
+  
+    <nav class="md-nav" aria-label="statusCode">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_9" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_9" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_14" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#text" class="md-nav__link">
+    text
+  </a>
+  
+    <nav class="md-nav" aria-label="text">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_10" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_10" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_15" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#transformresponseoptions" class="md-nav__link">
+    transformResponseOptions
+  </a>
+  
+    <nav class="md-nav" aria-label="transformResponseOptions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#returns_11" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_16" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      <label class="md-nav__link" for="__nav_4">
+        Interfaces
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Interfaces" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Interfaces
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../interfaces/router_route.routeoptions.html" class="md-nav__link">
+        Interface: RouteOptions<AdditionalDataType\>
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../interfaces/router_router.routeroptions.html" class="md-nav__link">
+        Interface: RouterOptions<AdditionalDataType\>
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      <label class="md-nav__link" for="__nav_5">
+        Modules
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Modules" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Modules
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../modules/index.html" class="md-nav__link">
+        Module: index
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../modules/router_route.html" class="md-nav__link">
+        Module: router/Route
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../modules/router_routepath.html" class="md-nav__link">
+        Module: router/RoutePath
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../modules/router_router.html" class="md-nav__link">
+        Module: router/Router
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../modules/router_routerrequest.html" class="md-nav__link">
+        Module: router/RouterRequest
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../modules/router_routerresponse.html" class="md-nav__link">
+        Module: router/RouterResponse
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#type-parameters" class="md-nav__link">
+    Type parameters
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#table-of-contents" class="md-nav__link">
+    Table of contents
+  </a>
+  
+    <nav class="md-nav" aria-label="Table of contents">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#constructors" class="md-nav__link">
+    Constructors
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#properties" class="md-nav__link">
+    Properties
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#methods" class="md-nav__link">
+    Methods
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#constructors_1" class="md-nav__link">
+    Constructors
+  </a>
+  
+    <nav class="md-nav" aria-label="Constructors">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#constructor" class="md-nav__link">
+    constructor
+  </a>
+  
+    <nav class="md-nav" aria-label="constructor">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#type-parameters_1" class="md-nav__link">
+    Type parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parameters" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#properties_1" class="md-nav__link">
+    Properties
+  </a>
+  
+    <nav class="md-nav" aria-label="Properties">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#locals" class="md-nav__link">
+    locals
+  </a>
+  
+    <nav class="md-nav" aria-label="locals">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_1" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#matchedroute" class="md-nav__link">
+    matchedRoute
+  </a>
+  
+    <nav class="md-nav" aria-label="matchedRoute">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_2" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#responseoptions" class="md-nav__link">
+    responseOptions
+  </a>
+  
+    <nav class="md-nav" aria-label="responseOptions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#type-declaration" class="md-nav__link">
+    Type declaration
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_3" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#routerrequest" class="md-nav__link">
+    routerRequest
+  </a>
+  
+    <nav class="md-nav" aria-label="routerRequest">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_4" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#methods_1" class="md-nav__link">
+    Methods
+  </a>
+  
+    <nav class="md-nav" aria-label="Methods">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#addtasks" class="md-nav__link">
+    addTasks
+  </a>
+  
+    <nav class="md-nav" aria-label="addTasks">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_1" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_5" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#build" class="md-nav__link">
+    build
+  </a>
+  
+    <nav class="md-nav" aria-label="build">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#returns_1" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_6" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#json" class="md-nav__link">
+    json
+  </a>
+  
+    <nav class="md-nav" aria-label="json">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_2" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_2" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_7" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#raw" class="md-nav__link">
+    raw
+  </a>
+  
+    <nav class="md-nav" aria-label="raw">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_3" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_3" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_8" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#redirectto" class="md-nav__link">
+    redirectTo
+  </a>
+  
+    <nav class="md-nav" aria-label="redirectTo">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_4" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_4" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_9" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setcontenttype" class="md-nav__link">
+    setContentType
+  </a>
+  
+    <nav class="md-nav" aria-label="setContentType">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_5" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_5" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_10" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setcustomresponse" class="md-nav__link">
+    setCustomResponse
+  </a>
+  
+    <nav class="md-nav" aria-label="setCustomResponse">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_6" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_6" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_11" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setmatchedroute" class="md-nav__link">
+    setMatchedRoute
+  </a>
+  
+    <nav class="md-nav" aria-label="setMatchedRoute">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_7" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_7" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_12" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#status" class="md-nav__link">
+    status
+  </a>
+  
+    <nav class="md-nav" aria-label="status">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_8" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_8" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_13" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#statuscode" class="md-nav__link">
+    statusCode
+  </a>
+  
+    <nav class="md-nav" aria-label="statusCode">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_9" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_9" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_14" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#text" class="md-nav__link">
+    text
+  </a>
+  
+    <nav class="md-nav" aria-label="text">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_10" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_10" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_15" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#transformresponseoptions" class="md-nav__link">
+    transformResponseOptions
+  </a>
+  
+    <nav class="md-nav" aria-label="transformResponseOptions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#returns_11" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_16" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="class-defaultadditionaldatatype">Class: default&lt;AdditionalDataType></h1>
+<p><a href="../modules/router_routerresponse.html">router/RouterResponse</a>.default</p>
+<h2 id="type-parameters">Type parameters</h2>
+<table>
+<thead>
+<tr>
+<th align="left">Name</th>
+<th align="left">Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>AdditionalDataType</code></td>
+<td align="left">extends <code>unknown</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="table-of-contents">Table of contents</h2>
+<h3 id="constructors">Constructors</h3>
+<ul>
+<li><a href="router_routerresponse.default.html#constructor">constructor</a></li>
+</ul>
+<h3 id="properties">Properties</h3>
+<ul>
+<li><a href="router_routerresponse.default.html#locals">locals</a></li>
+<li><a href="router_routerresponse.default.html#matchedroute">matchedRoute</a></li>
+<li><a href="router_routerresponse.default.html#responseoptions">responseOptions</a></li>
+<li><a href="router_routerresponse.default.html#routerrequest">routerRequest</a></li>
+</ul>
+<h3 id="methods">Methods</h3>
+<ul>
+<li><a href="router_routerresponse.default.html#addtasks">addTasks</a></li>
+<li><a href="router_routerresponse.default.html#build">build</a></li>
+<li><a href="router_routerresponse.default.html#json">json</a></li>
+<li><a href="router_routerresponse.default.html#raw">raw</a></li>
+<li><a href="router_routerresponse.default.html#redirectto">redirectTo</a></li>
+<li><a href="router_routerresponse.default.html#setcontenttype">setContentType</a></li>
+<li><a href="router_routerresponse.default.html#setcustomresponse">setCustomResponse</a></li>
+<li><a href="router_routerresponse.default.html#setmatchedroute">setMatchedRoute</a></li>
+<li><a href="router_routerresponse.default.html#status">status</a></li>
+<li><a href="router_routerresponse.default.html#statuscode">statusCode</a></li>
+<li><a href="router_routerresponse.default.html#text">text</a></li>
+<li><a href="router_routerresponse.default.html#transformresponseoptions">transformResponseOptions</a></li>
+</ul>
+<h2 id="constructors_1">Constructors</h2>
+<h3 id="constructor">constructor</h3>
+<p>• <strong>new default</strong>&lt;<code>AdditionalDataType</code>>(<code>routerRequest</code>)</p>
+<p>Creates a RouterResponse class instance.</p>
+<h4 id="type-parameters_1">Type parameters</h4>
+<table>
+<thead>
+<tr>
+<th align="left">Name</th>
+<th align="left">Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>AdditionalDataType</code></td>
+<td align="left">extends <code>unknown</code></td>
+</tr>
+</tbody>
+</table>
+<h4 id="parameters">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th align="left">Name</th>
+<th align="left">Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>routerRequest</code></td>
+<td align="left"><a href="router_routerrequest.default.html"><code>default</code></a>&lt;<code>AdditionalDataType</code>></td>
+</tr>
+</tbody>
+</table>
+<h4 id="defined-in">Defined in</h4>
+<p><a href="https://github.com/Visualizememe/cloudflare-router/blob/79fba66/src/router/RouterResponse.ts#L92">router/RouterResponse.ts:92</a></p>
+<h2 id="properties_1">Properties</h2>
+<h3 id="locals">locals</h3>
+<p>• <strong>locals</strong>: <code>Record</code>&lt;<code>any</code>, <code>any</code>></p>
+<p>Used as a temporary "cache" to share data between middlewares and the response handler (i.e. auth status)</p>
+<h4 id="defined-in_1">Defined in</h4>
+<p><a href="https://github.com/Visualizememe/cloudflare-router/blob/79fba66/src/router/RouterResponse.ts#L92">router/RouterResponse.ts:92</a></p>
+<hr />
+<h3 id="matchedroute">matchedRoute</h3>
+<p>• <strong>matchedRoute</strong>: <code>null</code> | <a href="router_route.default.html"><code>default</code></a>&lt;<code>AdditionalDataType</code>></p>
+<p>The route that the request matched to</p>
+<h4 id="defined-in_2">Defined in</h4>
+<p><a href="https://github.com/Visualizememe/cloudflare-router/blob/79fba66/src/router/RouterResponse.ts#L87">router/RouterResponse.ts:87</a></p>
+<hr />
+<h3 id="responseoptions">responseOptions</h3>
+<p>• <strong>responseOptions</strong>: <code>Object</code></p>
+<p>Used internally as a temporary thing to hold on values before the .build() method is called</p>
+<h4 id="type-declaration">Type declaration</h4>
+<table>
+<thead>
+<tr>
+<th align="left">Name</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>body</code></td>
+<td align="left"><a href="../modules/router_routerresponse.html#responsebodytype"><code>ResponseBodyType</code></a></td>
+<td align="left">The body of the response tha will be sent to the client</td>
+</tr>
+<tr>
+<td align="left"><code>customResponse?</code></td>
+<td align="left"><code>Response</code></td>
+<td align="left">If the user wants to provide a custom response that should be returned instead of processing by cloudflare-router</td>
+</tr>
+<tr>
+<td align="left"><code>headers</code></td>
+<td align="left"><code>Record</code>&lt;<code>string</code>, <code>string</code>></td>
+<td align="left">The headers to be sent to the client</td>
+</tr>
+<tr>
+<td align="left"><code>redirect</code></td>
+<td align="left"><code>Object</code></td>
+<td align="left">Information regarding the redirect if the type is set to "redirect"</td>
+</tr>
+<tr>
+<td align="left"><code>redirect.redirectStatusCode?</code></td>
+<td align="left"><code>number</code></td>
+<td align="left">The status code of the redirect, default is 302 (temporary)</td>
+</tr>
+<tr>
+<td align="left"><code>redirect.redirectToUrl?</code></td>
+<td align="left"><code>string</code></td>
+<td align="left">The URL to redirect to</td>
+</tr>
+<tr>
+<td align="left"><code>status</code></td>
+<td align="left"><code>string</code></td>
+<td align="left">The status (text) of the response</td>
+</tr>
+<tr>
+<td align="left"><code>statusCode</code></td>
+<td align="left"><code>number</code></td>
+<td align="left">The status (code) of the response</td>
+</tr>
+<tr>
+<td align="left"><code>tasks</code></td>
+<td align="left"><code>Promise</code>&lt;<code>unknown</code>>[]</td>
+<td align="left">Any remaining tasks that should be handled even after the request was finished.</td>
+</tr>
+<tr>
+<td align="left"><code>type</code></td>
+<td align="left"><code>"normal"</code> | <code>"redirect"</code> | <code>"custom"</code></td>
+<td align="left">Whether the response is "normal", a redirect or if the user wants to return a custom response</td>
+</tr>
+</tbody>
+</table>
+<h4 id="defined-in_3">Defined in</h4>
+<p><a href="https://github.com/Visualizememe/cloudflare-router/blob/79fba66/src/router/RouterResponse.ts#L32">router/RouterResponse.ts:32</a></p>
+<hr />
+<h3 id="routerrequest">routerRequest</h3>
+<p>• <strong>routerRequest</strong>: <a href="router_routerrequest.default.html"><code>default</code></a>&lt;<code>AdditionalDataType</code>></p>
+<p>The RouterRequest class instance of the request</p>
+<h4 id="defined-in_4">Defined in</h4>
+<p><a href="https://github.com/Visualizememe/cloudflare-router/blob/79fba66/src/router/RouterResponse.ts#L82">router/RouterResponse.ts:82</a></p>
+<h2 id="methods_1">Methods</h2>
+<h3 id="addtasks">addTasks</h3>
+<p>▸ <strong>addTasks</strong>(<code>tasks</code>): <a href="router_routerresponse.default.html"><code>default</code></a>&lt;<code>AdditionalDataType</code>></p>
+<p>Adds any tasks that should still be complete even after the request has finished.</p>
+<h4 id="parameters_1">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th align="left">Name</th>
+<th align="left">Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>tasks</code></td>
+<td align="left"><code>Promise</code>&lt;<code>unknown</code>> | <code>Promise</code>&lt;<code>unknown</code>>[]</td>
+</tr>
+</tbody>
+</table>
+<h4 id="returns">Returns</h4>
+<p><a href="router_routerresponse.default.html"><code>default</code></a>&lt;<code>AdditionalDataType</code>></p>
+<h4 id="defined-in_5">Defined in</h4>
+<p><a href="https://github.com/Visualizememe/cloudflare-router/blob/79fba66/src/router/RouterResponse.ts#L187">router/RouterResponse.ts:187</a></p>
+<hr />
+<h3 id="build">build</h3>
+<p>▸ <strong>build</strong>(): <a href="../modules/router_routerresponse.html#builtresponseobject"><code>BuiltResponseObject</code></a>&lt;<code>AdditionalDataType</code>></p>
+<p>Builds a final response data to be returned to the .serveRequest() method.</p>
+<h4 id="returns_1">Returns</h4>
+<p><a href="../modules/router_routerresponse.html#builtresponseobject"><code>BuiltResponseObject</code></a>&lt;<code>AdditionalDataType</code>></p>
+<h4 id="defined-in_6">Defined in</h4>
+<p><a href="https://github.com/Visualizememe/cloudflare-router/blob/79fba66/src/router/RouterResponse.ts#L250">router/RouterResponse.ts:250</a></p>
+<hr />
+<h3 id="json">json</h3>
+<p>▸ <strong>json</strong>(<code>data</code>): <a href="router_routerresponse.default.html"><code>default</code></a>&lt;<code>AdditionalDataType</code>></p>
+<p>Stringifies the input data into JSON and sends to the client (also automatically sets content-type to json)</p>
+<h4 id="parameters_2">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th align="left">Name</th>
+<th align="left">Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>data</code></td>
+<td align="left"><code>unknown</code></td>
+</tr>
+</tbody>
+</table>
+<h4 id="returns_2">Returns</h4>
+<p><a href="router_routerresponse.default.html"><code>default</code></a>&lt;<code>AdditionalDataType</code>></p>
+<h4 id="defined-in_7">Defined in</h4>
+<p><a href="https://github.com/Visualizememe/cloudflare-router/blob/79fba66/src/router/RouterResponse.ts#L127">router/RouterResponse.ts:127</a></p>
+<hr />
+<h3 id="raw">raw</h3>
+<p>▸ <strong>raw</strong>(<code>body</code>, <code>contentType</code>): <a href="router_routerresponse.default.html"><code>default</code></a>&lt;<code>AdditionalDataType</code>></p>
+<p>Sends "raw" input data to the client (without processing from cloudflare-router), specify content type in 2nd
+parameter</p>
+<h4 id="parameters_3">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th align="left">Name</th>
+<th align="left">Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>body</code></td>
+<td align="left"><a href="../modules/router_routerresponse.html#responsebodytype"><code>ResponseBodyType</code></a></td>
+</tr>
+<tr>
+<td align="left"><code>contentType</code></td>
+<td align="left"><code>string</code></td>
+</tr>
+</tbody>
+</table>
+<h4 id="returns_3">Returns</h4>
+<p><a href="router_routerresponse.default.html"><code>default</code></a>&lt;<code>AdditionalDataType</code>></p>
+<h4 id="defined-in_8">Defined in</h4>
+<p><a href="https://github.com/Visualizememe/cloudflare-router/blob/79fba66/src/router/RouterResponse.ts#L141">router/RouterResponse.ts:141</a></p>
+<hr />
+<h3 id="redirectto">redirectTo</h3>
+<p>▸ <strong>redirectTo</strong>(<code>redirectUrl</code>, <code>redirectStatusCode?</code>): <a href="router_routerresponse.default.html"><code>default</code></a>&lt;<code>AdditionalDataType</code>></p>
+<p>Makes the response a redirect response, redirecting the user to the specified link, the default status code
+is 302 (temporary)</p>
+<h4 id="parameters_4">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th align="left">Name</th>
+<th align="left">Type</th>
+<th align="left">Default value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>redirectUrl</code></td>
+<td align="left"><code>string</code></td>
+<td align="left"><code>undefined</code></td>
+</tr>
+<tr>
+<td align="left"><code>redirectStatusCode</code></td>
+<td align="left"><code>number</code></td>
+<td align="left"><code>302</code></td>
+</tr>
+</tbody>
+</table>
+<h4 id="returns_4">Returns</h4>
+<p><a href="router_routerresponse.default.html"><code>default</code></a>&lt;<code>AdditionalDataType</code>></p>
+<h4 id="defined-in_9">Defined in</h4>
+<p><a href="https://github.com/Visualizememe/cloudflare-router/blob/79fba66/src/router/RouterResponse.ts#L201">router/RouterResponse.ts:201</a></p>
+<hr />
+<h3 id="setcontenttype">setContentType</h3>
+<p>▸ <strong>setContentType</strong>(<code>contentType</code>): <a href="router_routerresponse.default.html"><code>default</code></a>&lt;<code>AdditionalDataType</code>></p>
+<p>Sets the content type of the response (does not process the body etc. regardless of content-type provided)</p>
+<h4 id="parameters_5">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th align="left">Name</th>
+<th align="left">Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>contentType</code></td>
+<td align="left"><code>string</code></td>
+</tr>
+</tbody>
+</table>
+<h4 id="returns_5">Returns</h4>
+<p><a href="router_routerresponse.default.html"><code>default</code></a>&lt;<code>AdditionalDataType</code>></p>
+<h4 id="defined-in_10">Defined in</h4>
+<p><a href="https://github.com/Visualizememe/cloudflare-router/blob/79fba66/src/router/RouterResponse.ts#L227">router/RouterResponse.ts:227</a></p>
+<hr />
+<h3 id="setcustomresponse">setCustomResponse</h3>
+<p>▸ <strong>setCustomResponse</strong>(<code>response</code>): <a href="router_routerresponse.default.html"><code>default</code></a>&lt;<code>AdditionalDataType</code>></p>
+<p>Sets a custom response if the user wants to return their own processed response object</p>
+<h4 id="parameters_6">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th align="left">Name</th>
+<th align="left">Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>response</code></td>
+<td align="left"><code>Response</code></td>
+</tr>
+</tbody>
+</table>
+<h4 id="returns_6">Returns</h4>
+<p><a href="router_routerresponse.default.html"><code>default</code></a>&lt;<code>AdditionalDataType</code>></p>
+<h4 id="defined-in_11">Defined in</h4>
+<p><a href="https://github.com/Visualizememe/cloudflare-router/blob/79fba66/src/router/RouterResponse.ts#L216">router/RouterResponse.ts:216</a></p>
+<hr />
+<h3 id="setmatchedroute">setMatchedRoute</h3>
+<p>▸ <strong>setMatchedRoute</strong>(<code>route</code>): <code>void</code></p>
+<p>Sets the route that the RouterRequest matched to</p>
+<h4 id="parameters_7">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th align="left">Name</th>
+<th align="left">Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>route</code></td>
+<td align="left"><a href="router_route.default.html"><code>default</code></a>&lt;<code>AdditionalDataType</code>></td>
+</tr>
+</tbody>
+</table>
+<h4 id="returns_7">Returns</h4>
+<p><code>void</code></p>
+<h4 id="defined-in_12">Defined in</h4>
+<p><a href="https://github.com/Visualizememe/cloudflare-router/blob/79fba66/src/router/RouterResponse.ts#L118">router/RouterResponse.ts:118</a></p>
+<hr />
+<h3 id="status">status</h3>
+<p>▸ <strong>status</strong>(<code>statusText</code>): <a href="router_routerresponse.default.html"><code>default</code></a>&lt;<code>AdditionalDataType</code>></p>
+<p>Sets the status (text) for this response that's sent to the client.</p>
+<h4 id="parameters_8">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th align="left">Name</th>
+<th align="left">Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>statusText</code></td>
+<td align="left"><code>string</code></td>
+</tr>
+</tbody>
+</table>
+<h4 id="returns_8">Returns</h4>
+<p><a href="router_routerresponse.default.html"><code>default</code></a>&lt;<code>AdditionalDataType</code>></p>
+<h4 id="defined-in_13">Defined in</h4>
+<p><a href="https://github.com/Visualizememe/cloudflare-router/blob/79fba66/src/router/RouterResponse.ts#L165">router/RouterResponse.ts:165</a></p>
+<hr />
+<h3 id="statuscode">statusCode</h3>
+<p>▸ <strong>statusCode</strong>(<code>statusCode</code>): <a href="router_routerresponse.default.html"><code>default</code></a>&lt;<code>AdditionalDataType</code>></p>
+<p>Sets the status code) for this response that's sent to the client.</p>
+<h4 id="parameters_9">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th align="left">Name</th>
+<th align="left">Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>statusCode</code></td>
+<td align="left"><code>number</code></td>
+</tr>
+</tbody>
+</table>
+<h4 id="returns_9">Returns</h4>
+<p><a href="router_routerresponse.default.html"><code>default</code></a>&lt;<code>AdditionalDataType</code>></p>
+<h4 id="defined-in_14">Defined in</h4>
+<p><a href="https://github.com/Visualizememe/cloudflare-router/blob/79fba66/src/router/RouterResponse.ts#L176">router/RouterResponse.ts:176</a></p>
+<hr />
+<h3 id="text">text</h3>
+<p>▸ <strong>text</strong>(<code>text</code>): <a href="router_routerresponse.default.html"><code>default</code></a>&lt;<code>AdditionalDataType</code>></p>
+<p>Sends the input text to the user (overrides the body property) and automatically sets content type to text.</p>
+<h4 id="parameters_10">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th align="left">Name</th>
+<th align="left">Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>text</code></td>
+<td align="left"><code>string</code></td>
+</tr>
+</tbody>
+</table>
+<h4 id="returns_10">Returns</h4>
+<p><a href="router_routerresponse.default.html"><code>default</code></a>&lt;<code>AdditionalDataType</code>></p>
+<h4 id="defined-in_15">Defined in</h4>
+<p><a href="https://github.com/Visualizememe/cloudflare-router/blob/79fba66/src/router/RouterResponse.ts#L153">router/RouterResponse.ts:153</a></p>
+<hr />
+<h3 id="transformresponseoptions">transformResponseOptions</h3>
+<p>▸ <strong>transformResponseOptions</strong>(): <code>Object</code></p>
+<p>Turns the status code, staus text and headers into an object for further processing of the cloudflare-router
+library</p>
+<h4 id="returns_11">Returns</h4>
+<p><code>Object</code></p>
+<table>
+<thead>
+<tr>
+<th align="left">Name</th>
+<th align="left">Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>headers</code></td>
+<td align="left"><code>Headers</code></td>
+</tr>
+<tr>
+<td align="left"><code>status</code></td>
+<td align="left"><code>number</code></td>
+</tr>
+<tr>
+<td align="left"><code>statusText</code></td>
+<td align="left"><code>string</code></td>
+</tr>
+</tbody>
+</table>
+<h4 id="defined-in_16">Defined in</h4>
+<p><a href="https://github.com/Visualizememe/cloudflare-router/blob/79fba66/src/router/RouterResponse.ts#L238">router/RouterResponse.ts:238</a></p>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="router_routerrequest.default.html" class="md-footer__link md-footer__link--prev" aria-label="Previous: Class: default&lt;AdditionalDataType\&gt;" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Class: default<AdditionalDataType\>
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../interfaces/router_route.routeoptions.html" class="md-footer__link md-footer__link--next" aria-label="Next: Interface: RouteOptions&lt;AdditionalDataType\&gt;" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Interface: RouteOptions<AdditionalDataType\>
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.instant", "navigation.tabs", "navigation.sections"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../assets/javascripts/workers/search.477d984a.min.js", "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.82b56eb2.min.js"></script>
+      
+    
+  </body>
+</html>

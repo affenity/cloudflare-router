@@ -1,0 +1,3118 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.1, mkdocs-material-7.1.9">
+    
+    
+      
+        <title>Class: default - Cloudflare-Router</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.ca7ac06f.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.f1a3b89f.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#000000">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+    
+      
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="black" data-md-color-accent="light-green">
+  
+    
+    <script>function __prefix(e){return new URL("..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#class-defaultadditionaldatatype" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../index.html" title="Cloudflare-Router" class="md-header__button md-logo" aria-label="Cloudflare-Router" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Cloudflare-Router
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Class: default<AdditionalDataType\>
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../index.html" class="md-tabs__link">
+      Home
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../modules.html" class="md-tabs__link">
+      cloudflare-router
+    </a>
+  </li>
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="router_route.default.html" class="md-tabs__link md-tabs__link--active">
+        Classes
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../interfaces/router_route.routeoptions.html" class="md-tabs__link">
+        Interfaces
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../modules/index.html" class="md-tabs__link">
+        Modules
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../index.html" title="Cloudflare-Router" class="md-nav__button md-logo" aria-label="Cloudflare-Router" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    Cloudflare-Router
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index.html" class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../modules.html" class="md-nav__link">
+        cloudflare-router
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
+      
+      <label class="md-nav__link" for="__nav_3">
+        Classes
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Classes" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Classes
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="router_route.default.html" class="md-nav__link">
+        Class: default<AdditionalDataType\>
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="router_routepath.default.html" class="md-nav__link">
+        Class: default<AdditionalDataType\>
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Class: default<AdditionalDataType\>
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="router_router.default.html" class="md-nav__link md-nav__link--active">
+        Class: default<AdditionalDataType\>
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#type-parameters" class="md-nav__link">
+    Type parameters
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#table-of-contents" class="md-nav__link">
+    Table of contents
+  </a>
+  
+    <nav class="md-nav" aria-label="Table of contents">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#constructors" class="md-nav__link">
+    Constructors
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#properties" class="md-nav__link">
+    Properties
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#methods" class="md-nav__link">
+    Methods
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#constructors_1" class="md-nav__link">
+    Constructors
+  </a>
+  
+    <nav class="md-nav" aria-label="Constructors">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#constructor" class="md-nav__link">
+    constructor
+  </a>
+  
+    <nav class="md-nav" aria-label="constructor">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#type-parameters_1" class="md-nav__link">
+    Type parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parameters" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#properties_1" class="md-nav__link">
+    Properties
+  </a>
+  
+    <nav class="md-nav" aria-label="Properties">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#basepath" class="md-nav__link">
+    basePath
+  </a>
+  
+    <nav class="md-nav" aria-label="basePath">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_1" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#customresponsebuilder" class="md-nav__link">
+    customResponseBuilder
+  </a>
+  
+    <nav class="md-nav" aria-label="customResponseBuilder">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_2" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ismainrouter" class="md-nav__link">
+    isMainRouter
+  </a>
+  
+    <nav class="md-nav" aria-label="isMainRouter">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_3" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#iswaterfallhandling" class="md-nav__link">
+    isWaterfallHandling
+  </a>
+  
+    <nav class="md-nav" aria-label="isWaterfallHandling">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_4" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mainrouter" class="md-nav__link">
+    mainRouter
+  </a>
+  
+    <nav class="md-nav" aria-label="mainRouter">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_5" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parentrouter" class="md-nav__link">
+    parentRouter
+  </a>
+  
+    <nav class="md-nav" aria-label="parentRouter">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_6" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#routes" class="md-nav__link">
+    routes
+  </a>
+  
+    <nav class="md-nav" aria-label="routes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_7" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#methods_1" class="md-nav__link">
+    Methods
+  </a>
+  
+    <nav class="md-nav" aria-label="Methods">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#any" class="md-nav__link">
+    any
+  </a>
+  
+    <nav class="md-nav" aria-label="any">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_1" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_8" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#assignselfasmainrouter" class="md-nav__link">
+    assignSelfAsMainRouter
+  </a>
+  
+    <nav class="md-nav" aria-label="assignSelfAsMainRouter">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#returns_1" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_9" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#createroute" class="md-nav__link">
+    createRoute
+  </a>
+  
+    <nav class="md-nav" aria-label="createRoute">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_2" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_2" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_10" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#createrouteandadd" class="md-nav__link">
+    createRouteAndAdd
+  </a>
+  
+    <nav class="md-nav" aria-label="createRouteAndAdd">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_3" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_3" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_11" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#delete" class="md-nav__link">
+    delete
+  </a>
+  
+    <nav class="md-nav" aria-label="delete">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_4" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_4" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_12" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#executemiddleware" class="md-nav__link">
+    executeMiddleware
+  </a>
+  
+    <nav class="md-nav" aria-label="executeMiddleware">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_5" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_5" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_13" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#findmatchingroutes" class="md-nav__link">
+    findMatchingRoutes
+  </a>
+  
+    <nav class="md-nav" aria-label="findMatchingRoutes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_6" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_6" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_14" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#finishresponse" class="md-nav__link">
+    finishResponse
+  </a>
+  
+    <nav class="md-nav" aria-label="finishResponse">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_7" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_7" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_15" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fixpath" class="md-nav__link">
+    fixPath
+  </a>
+  
+    <nav class="md-nav" aria-label="fixPath">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_8" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_8" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_16" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get" class="md-nav__link">
+    get
+  </a>
+  
+    <nav class="md-nav" aria-label="get">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_9" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_9" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_17" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getmainrouter" class="md-nav__link">
+    getMainRouter
+  </a>
+  
+    <nav class="md-nav" aria-label="getMainRouter">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#returns_10" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_18" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#head" class="md-nav__link">
+    head
+  </a>
+  
+    <nav class="md-nav" aria-label="head">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_10" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_11" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_19" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#init" class="md-nav__link">
+    init
+  </a>
+  
+    <nav class="md-nav" aria-label="init">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_11" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_12" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_20" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#options" class="md-nav__link">
+    options
+  </a>
+  
+    <nav class="md-nav" aria-label="options">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_12" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_13" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_21" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#post" class="md-nav__link">
+    post
+  </a>
+  
+    <nav class="md-nav" aria-label="post">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_13" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_14" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_22" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#processrequest" class="md-nav__link">
+    processRequest
+  </a>
+  
+    <nav class="md-nav" aria-label="processRequest">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_14" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_15" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_23" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#serverequest" class="md-nav__link">
+    serveRequest
+  </a>
+  
+    <nav class="md-nav" aria-label="serveRequest">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_15" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_16" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_24" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#updateselfroutes" class="md-nav__link">
+    updateSelfRoutes
+  </a>
+  
+    <nav class="md-nav" aria-label="updateSelfRoutes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#returns_17" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_25" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#use" class="md-nav__link">
+    use
+  </a>
+  
+    <nav class="md-nav" aria-label="use">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_16" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_18" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_26" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#usebulk" class="md-nav__link">
+    useBulk
+  </a>
+  
+    <nav class="md-nav" aria-label="useBulk">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_17" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_19" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_27" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="router_routerrequest.default.html" class="md-nav__link">
+        Class: default<AdditionalDataType\>
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="router_routerresponse.default.html" class="md-nav__link">
+        Class: default<AdditionalDataType\>
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      <label class="md-nav__link" for="__nav_4">
+        Interfaces
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Interfaces" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Interfaces
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../interfaces/router_route.routeoptions.html" class="md-nav__link">
+        Interface: RouteOptions<AdditionalDataType\>
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../interfaces/router_router.routeroptions.html" class="md-nav__link">
+        Interface: RouterOptions<AdditionalDataType\>
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      <label class="md-nav__link" for="__nav_5">
+        Modules
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Modules" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Modules
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../modules/index.html" class="md-nav__link">
+        Module: index
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../modules/router_route.html" class="md-nav__link">
+        Module: router/Route
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../modules/router_routepath.html" class="md-nav__link">
+        Module: router/RoutePath
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../modules/router_router.html" class="md-nav__link">
+        Module: router/Router
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../modules/router_routerrequest.html" class="md-nav__link">
+        Module: router/RouterRequest
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../modules/router_routerresponse.html" class="md-nav__link">
+        Module: router/RouterResponse
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#type-parameters" class="md-nav__link">
+    Type parameters
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#table-of-contents" class="md-nav__link">
+    Table of contents
+  </a>
+  
+    <nav class="md-nav" aria-label="Table of contents">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#constructors" class="md-nav__link">
+    Constructors
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#properties" class="md-nav__link">
+    Properties
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#methods" class="md-nav__link">
+    Methods
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#constructors_1" class="md-nav__link">
+    Constructors
+  </a>
+  
+    <nav class="md-nav" aria-label="Constructors">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#constructor" class="md-nav__link">
+    constructor
+  </a>
+  
+    <nav class="md-nav" aria-label="constructor">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#type-parameters_1" class="md-nav__link">
+    Type parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parameters" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#properties_1" class="md-nav__link">
+    Properties
+  </a>
+  
+    <nav class="md-nav" aria-label="Properties">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#basepath" class="md-nav__link">
+    basePath
+  </a>
+  
+    <nav class="md-nav" aria-label="basePath">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_1" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#customresponsebuilder" class="md-nav__link">
+    customResponseBuilder
+  </a>
+  
+    <nav class="md-nav" aria-label="customResponseBuilder">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_2" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ismainrouter" class="md-nav__link">
+    isMainRouter
+  </a>
+  
+    <nav class="md-nav" aria-label="isMainRouter">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_3" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#iswaterfallhandling" class="md-nav__link">
+    isWaterfallHandling
+  </a>
+  
+    <nav class="md-nav" aria-label="isWaterfallHandling">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_4" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mainrouter" class="md-nav__link">
+    mainRouter
+  </a>
+  
+    <nav class="md-nav" aria-label="mainRouter">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_5" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parentrouter" class="md-nav__link">
+    parentRouter
+  </a>
+  
+    <nav class="md-nav" aria-label="parentRouter">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_6" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#routes" class="md-nav__link">
+    routes
+  </a>
+  
+    <nav class="md-nav" aria-label="routes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_7" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#methods_1" class="md-nav__link">
+    Methods
+  </a>
+  
+    <nav class="md-nav" aria-label="Methods">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#any" class="md-nav__link">
+    any
+  </a>
+  
+    <nav class="md-nav" aria-label="any">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_1" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_8" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#assignselfasmainrouter" class="md-nav__link">
+    assignSelfAsMainRouter
+  </a>
+  
+    <nav class="md-nav" aria-label="assignSelfAsMainRouter">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#returns_1" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_9" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#createroute" class="md-nav__link">
+    createRoute
+  </a>
+  
+    <nav class="md-nav" aria-label="createRoute">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_2" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_2" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_10" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#createrouteandadd" class="md-nav__link">
+    createRouteAndAdd
+  </a>
+  
+    <nav class="md-nav" aria-label="createRouteAndAdd">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_3" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_3" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_11" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#delete" class="md-nav__link">
+    delete
+  </a>
+  
+    <nav class="md-nav" aria-label="delete">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_4" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_4" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_12" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#executemiddleware" class="md-nav__link">
+    executeMiddleware
+  </a>
+  
+    <nav class="md-nav" aria-label="executeMiddleware">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_5" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_5" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_13" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#findmatchingroutes" class="md-nav__link">
+    findMatchingRoutes
+  </a>
+  
+    <nav class="md-nav" aria-label="findMatchingRoutes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_6" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_6" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_14" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#finishresponse" class="md-nav__link">
+    finishResponse
+  </a>
+  
+    <nav class="md-nav" aria-label="finishResponse">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_7" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_7" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_15" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fixpath" class="md-nav__link">
+    fixPath
+  </a>
+  
+    <nav class="md-nav" aria-label="fixPath">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_8" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_8" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_16" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get" class="md-nav__link">
+    get
+  </a>
+  
+    <nav class="md-nav" aria-label="get">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_9" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_9" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_17" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getmainrouter" class="md-nav__link">
+    getMainRouter
+  </a>
+  
+    <nav class="md-nav" aria-label="getMainRouter">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#returns_10" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_18" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#head" class="md-nav__link">
+    head
+  </a>
+  
+    <nav class="md-nav" aria-label="head">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_10" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_11" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_19" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#init" class="md-nav__link">
+    init
+  </a>
+  
+    <nav class="md-nav" aria-label="init">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_11" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_12" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_20" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#options" class="md-nav__link">
+    options
+  </a>
+  
+    <nav class="md-nav" aria-label="options">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_12" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_13" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_21" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#post" class="md-nav__link">
+    post
+  </a>
+  
+    <nav class="md-nav" aria-label="post">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_13" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_14" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_22" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#processrequest" class="md-nav__link">
+    processRequest
+  </a>
+  
+    <nav class="md-nav" aria-label="processRequest">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_14" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_15" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_23" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#serverequest" class="md-nav__link">
+    serveRequest
+  </a>
+  
+    <nav class="md-nav" aria-label="serveRequest">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_15" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_16" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_24" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#updateselfroutes" class="md-nav__link">
+    updateSelfRoutes
+  </a>
+  
+    <nav class="md-nav" aria-label="updateSelfRoutes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#returns_17" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_25" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#use" class="md-nav__link">
+    use
+  </a>
+  
+    <nav class="md-nav" aria-label="use">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_16" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_18" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_26" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#usebulk" class="md-nav__link">
+    useBulk
+  </a>
+  
+    <nav class="md-nav" aria-label="useBulk">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_17" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_19" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_27" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="class-defaultadditionaldatatype">Class: default&lt;AdditionalDataType></h1>
+<p><a href="../modules/router_router.html">router/Router</a>.default</p>
+<h2 id="type-parameters">Type parameters</h2>
+<table>
+<thead>
+<tr>
+<th align="left">Name</th>
+<th align="left">Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>AdditionalDataType</code></td>
+<td align="left">extends <code>unknown</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="table-of-contents">Table of contents</h2>
+<h3 id="constructors">Constructors</h3>
+<ul>
+<li><a href="router_router.default.html#constructor">constructor</a></li>
+</ul>
+<h3 id="properties">Properties</h3>
+<ul>
+<li><a href="router_router.default.html#basepath">basePath</a></li>
+<li><a href="router_router.default.html#customresponsebuilder">customResponseBuilder</a></li>
+<li><a href="router_router.default.html#ismainrouter">isMainRouter</a></li>
+<li><a href="router_router.default.html#iswaterfallhandling">isWaterfallHandling</a></li>
+<li><a href="router_router.default.html#mainrouter">mainRouter</a></li>
+<li><a href="router_router.default.html#parentrouter">parentRouter</a></li>
+<li><a href="router_router.default.html#routes">routes</a></li>
+</ul>
+<h3 id="methods">Methods</h3>
+<ul>
+<li><a href="router_router.default.html#any">any</a></li>
+<li><a href="router_router.default.html#assignselfasmainrouter">assignSelfAsMainRouter</a></li>
+<li><a href="router_router.default.html#createroute">createRoute</a></li>
+<li><a href="router_router.default.html#createrouteandadd">createRouteAndAdd</a></li>
+<li><a href="router_router.default.html#delete">delete</a></li>
+<li><a href="router_router.default.html#executemiddleware">executeMiddleware</a></li>
+<li><a href="router_router.default.html#findmatchingroutes">findMatchingRoutes</a></li>
+<li><a href="router_router.default.html#finishresponse">finishResponse</a></li>
+<li><a href="router_router.default.html#fixpath">fixPath</a></li>
+<li><a href="router_router.default.html#get">get</a></li>
+<li><a href="router_router.default.html#getmainrouter">getMainRouter</a></li>
+<li><a href="router_router.default.html#head">head</a></li>
+<li><a href="router_router.default.html#init">init</a></li>
+<li><a href="router_router.default.html#options">options</a></li>
+<li><a href="router_router.default.html#post">post</a></li>
+<li><a href="router_router.default.html#processrequest">processRequest</a></li>
+<li><a href="router_router.default.html#serverequest">serveRequest</a></li>
+<li><a href="router_router.default.html#updateselfroutes">updateSelfRoutes</a></li>
+<li><a href="router_router.default.html#use">use</a></li>
+<li><a href="router_router.default.html#usebulk">useBulk</a></li>
+</ul>
+<h2 id="constructors_1">Constructors</h2>
+<h3 id="constructor">constructor</h3>
+<p>• <strong>new default</strong>&lt;<code>AdditionalDataType</code>>(<code>options?</code>)</p>
+<p>Creates a new Router. Only one router can be used for .serveRequest(), attempting to use multiple routers for
+this will result in an error.</p>
+<h4 id="type-parameters_1">Type parameters</h4>
+<table>
+<thead>
+<tr>
+<th align="left">Name</th>
+<th align="left">Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>AdditionalDataType</code></td>
+<td align="left">extends <code>unknown</code></td>
+</tr>
+</tbody>
+</table>
+<h4 id="parameters">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th align="left">Name</th>
+<th align="left">Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>options?</code></td>
+<td align="left"><a href="../interfaces/router_router.routeroptions.html"><code>RouterOptions</code></a>&lt;<code>AdditionalDataType</code>></td>
+</tr>
+</tbody>
+</table>
+<h4 id="defined-in">Defined in</h4>
+<p><a href="https://github.com/Visualizememe/cloudflare-router/blob/79fba66/src/router/Router.ts#L56">router/Router.ts:56</a></p>
+<h2 id="properties_1">Properties</h2>
+<h3 id="basepath">basePath</h3>
+<p>• <strong>basePath</strong>: <code>string</code></p>
+<h4 id="defined-in_1">Defined in</h4>
+<p><a href="https://github.com/Visualizememe/cloudflare-router/blob/79fba66/src/router/Router.ts#L29">router/Router.ts:29</a></p>
+<hr />
+<h3 id="customresponsebuilder">customResponseBuilder</h3>
+<p>• <strong>customResponseBuilder</strong>: <code>undefined</code> | (<code>routerResponse</code>: <a href="router_routerresponse.default.html"><code>default</code></a>&lt;<code>AdditionalDataType</code>>) =&gt; <code>any</code></p>
+<p>If you want to build your own responses from the data collected from your application, you do it here
+The only argument in the callback function is the RouterResponse instance.</p>
+<h4 id="defined-in_2">Defined in</h4>
+<p><a href="https://github.com/Visualizememe/cloudflare-router/blob/79fba66/src/router/Router.ts#L56">router/Router.ts:56</a></p>
+<hr />
+<h3 id="ismainrouter">isMainRouter</h3>
+<p>• <strong>isMainRouter</strong>: <code>boolean</code></p>
+<p>All router instances will be assigned to false by default, because only the router that's called
+using .serve() will be considered the main router.</p>
+<h4 id="defined-in_3">Defined in</h4>
+<p><a href="https://github.com/Visualizememe/cloudflare-router/blob/79fba66/src/router/Router.ts#L49">router/Router.ts:49</a></p>
+<hr />
+<h3 id="iswaterfallhandling">isWaterfallHandling</h3>
+<p>• <strong>isWaterfallHandling</strong>: <code>boolean</code></p>
+<h4 id="defined-in_4">Defined in</h4>
+<p><a href="https://github.com/Visualizememe/cloudflare-router/blob/79fba66/src/router/Router.ts#L30">router/Router.ts:30</a></p>
+<hr />
+<h3 id="mainrouter">mainRouter</h3>
+<p>• <strong>mainRouter</strong>: <code>null</code> | <a href="router_router.default.html"><code>default</code></a>&lt;<code>AdditionalDataType</code>></p>
+<p>The main router that connects all other routers</p>
+<h4 id="defined-in_5">Defined in</h4>
+<p><a href="https://github.com/Visualizememe/cloudflare-router/blob/79fba66/src/router/Router.ts#L43">router/Router.ts:43</a></p>
+<hr />
+<h3 id="parentrouter">parentRouter</h3>
+<p>• <strong>parentRouter</strong>: <code>null</code> | <a href="router_router.default.html"><code>default</code></a>&lt;<code>AdditionalDataType</code>></p>
+<p>If this is a sub-router of another Router, this property will be defined with the Router that's connected to this</p>
+<h4 id="defined-in_6">Defined in</h4>
+<p><a href="https://github.com/Visualizememe/cloudflare-router/blob/79fba66/src/router/Router.ts#L37">router/Router.ts:37</a></p>
+<hr />
+<h3 id="routes">routes</h3>
+<p>• <strong>routes</strong>: <a href="router_route.default.html"><code>default</code></a>&lt;<code>AdditionalDataType</code>>[]</p>
+<h4 id="defined-in_7">Defined in</h4>
+<p><a href="https://github.com/Visualizememe/cloudflare-router/blob/79fba66/src/router/Router.ts#L31">router/Router.ts:31</a></p>
+<h2 id="methods_1">Methods</h2>
+<h3 id="any">any</h3>
+<p>▸ <strong>any</strong>(<code>path</code>, <code>handler</code>): <code>void</code></p>
+<p>Adds a handler for a request that hits this path regardless of the method used.</p>
+<h4 id="parameters_1">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th align="left">Name</th>
+<th align="left">Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>path</code></td>
+<td align="left"><code>string</code></td>
+</tr>
+<tr>
+<td align="left"><code>handler</code></td>
+<td align="left"><a href="../modules/router_route.html#routehandler"><code>RouteHandler</code></a>&lt;<code>AdditionalDataType</code>></td>
+</tr>
+</tbody>
+</table>
+<h4 id="returns">Returns</h4>
+<p><code>void</code></p>
+<h4 id="defined-in_8">Defined in</h4>
+<p><a href="https://github.com/Visualizememe/cloudflare-router/blob/79fba66/src/router/Router.ts#L314">router/Router.ts:314</a></p>
+<hr />
+<h3 id="assignselfasmainrouter">assignSelfAsMainRouter</h3>
+<p>▸ <strong>assignSelfAsMainRouter</strong>(): <code>void</code></p>
+<p>Used internally, which will declare this router as the main router. Note there can only be one main router,
+otherwise unexpected issues can arise, and will most likely throw errors.</p>
+<h4 id="returns_1">Returns</h4>
+<p><code>void</code></p>
+<h4 id="defined-in_9">Defined in</h4>
+<p><a href="https://github.com/Visualizememe/cloudflare-router/blob/79fba66/src/router/Router.ts#L199">router/Router.ts:199</a></p>
+<hr />
+<h3 id="createroute">createRoute</h3>
+<p>▸ <strong>createRoute</strong>(<code>options</code>): <a href="router_route.default.html"><code>default</code></a>&lt;<code>AdditionalDataType</code>></p>
+<p>Used internally as a standardized way of registering routes. Normally you want to use .get() or .post(), but
+this method is also available. This will only create a route, not apply it to the router. Use
+router.createRouteAndAdd() to add the route to the router automatically.</p>
+<h4 id="parameters_2">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th align="left">Name</th>
+<th align="left">Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>options</code></td>
+<td align="left"><a href="../interfaces/router_route.routeoptions.html"><code>RouteOptions</code></a>&lt;<code>AdditionalDataType</code>></td>
+</tr>
+</tbody>
+</table>
+<h4 id="returns_2">Returns</h4>
+<p><a href="router_route.default.html"><code>default</code></a>&lt;<code>AdditionalDataType</code>></p>
+<h4 id="defined-in_10">Defined in</h4>
+<p><a href="https://github.com/Visualizememe/cloudflare-router/blob/79fba66/src/router/Router.ts#L134">router/Router.ts:134</a></p>
+<hr />
+<h3 id="createrouteandadd">createRouteAndAdd</h3>
+<p>▸ <strong>createRouteAndAdd</strong>(<code>options</code>): <a href="router_route.default.html"><code>default</code></a>&lt;<code>AdditionalDataType</code>></p>
+<p>Creates a route and adds it to the current router instance. Used internally to standardize the way of creating
+routes. Normally you'll want to use .get() or .post() to set up routes.</p>
+<h4 id="parameters_3">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th align="left">Name</th>
+<th align="left">Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>options</code></td>
+<td align="left"><a href="../interfaces/router_route.routeoptions.html"><code>RouteOptions</code></a>&lt;<code>AdditionalDataType</code>></td>
+</tr>
+</tbody>
+</table>
+<h4 id="returns_3">Returns</h4>
+<p><a href="router_route.default.html"><code>default</code></a>&lt;<code>AdditionalDataType</code>></p>
+<h4 id="defined-in_11">Defined in</h4>
+<p><a href="https://github.com/Visualizememe/cloudflare-router/blob/79fba66/src/router/Router.ts#L148">router/Router.ts:148</a></p>
+<hr />
+<h3 id="delete">delete</h3>
+<p>▸ <strong>delete</strong>(<code>path</code>, <code>handler</code>): <code>void</code></p>
+<p>Adds a handler for a request that hits this path using the DELETE HTTP method.</p>
+<h4 id="parameters_4">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th align="left">Name</th>
+<th align="left">Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>path</code></td>
+<td align="left"><code>string</code></td>
+</tr>
+<tr>
+<td align="left"><code>handler</code></td>
+<td align="left"><a href="../modules/router_route.html#routehandler"><code>RouteHandler</code></a>&lt;<code>AdditionalDataType</code>></td>
+</tr>
+</tbody>
+</table>
+<h4 id="returns_4">Returns</h4>
+<p><code>void</code></p>
+<h4 id="defined-in_12">Defined in</h4>
+<p><a href="https://github.com/Visualizememe/cloudflare-router/blob/79fba66/src/router/Router.ts#L300">router/Router.ts:300</a></p>
+<hr />
+<h3 id="executemiddleware">executeMiddleware</h3>
+<p>▸ <strong>executeMiddleware</strong>(<code>middleware</code>, <code>request</code>, <code>response</code>): <code>Promise</code>&lt;<code>boolean</code>></p>
+<p>Used internally when wanting to execute a middleware (running it, not.. beheading it.. jeez). It returns a
+promise which contains a boolean indicating the success status. If one middleware is failing or wants to abort
+further processing, next(true) is used to indicate this.</p>
+<h4 id="parameters_5">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th align="left">Name</th>
+<th align="left">Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>middleware</code></td>
+<td align="left"><a href="router_route.default.html"><code>default</code></a>&lt;<code>AdditionalDataType</code>></td>
+</tr>
+<tr>
+<td align="left"><code>request</code></td>
+<td align="left"><a href="router_routerrequest.default.html"><code>default</code></a>&lt;<code>AdditionalDataType</code>></td>
+</tr>
+<tr>
+<td align="left"><code>response</code></td>
+<td align="left"><a href="router_routerresponse.default.html"><code>default</code></a>&lt;<code>AdditionalDataType</code>></td>
+</tr>
+</tbody>
+</table>
+<h4 id="returns_5">Returns</h4>
+<p><code>Promise</code>&lt;<code>boolean</code>></p>
+<h4 id="defined-in_13">Defined in</h4>
+<p><a href="https://github.com/Visualizememe/cloudflare-router/blob/79fba66/src/router/Router.ts#L425">router/Router.ts:425</a></p>
+<hr />
+<h3 id="findmatchingroutes">findMatchingRoutes</h3>
+<p>▸ <strong>findMatchingRoutes</strong>(<code>request</code>): <a href="../modules/router_router.html#matchingroute"><code>MatchingRoute</code></a>&lt;<code>AdditionalDataType</code>>[]</p>
+<p>Used internally to recursively look for routes that match the path and method. Will return anything that matches
+regardless if it's a middleware or not. Anything that's a route will be returned as long as it matches.</p>
+<h4 id="parameters_6">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th align="left">Name</th>
+<th align="left">Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>request</code></td>
+<td align="left"><a href="router_routerrequest.default.html"><code>default</code></a>&lt;<code>AdditionalDataType</code>></td>
+</tr>
+</tbody>
+</table>
+<h4 id="returns_6">Returns</h4>
+<p><a href="../modules/router_router.html#matchingroute"><code>MatchingRoute</code></a>&lt;<code>AdditionalDataType</code>>[]</p>
+<h4 id="defined-in_14">Defined in</h4>
+<p><a href="https://github.com/Visualizememe/cloudflare-router/blob/79fba66/src/router/Router.ts#L215">router/Router.ts:215</a></p>
+<hr />
+<h3 id="finishresponse">finishResponse</h3>
+<p>▸ <strong>finishResponse</strong>(<code>_request</code>, <code>response</code>): <code>Promise</code>&lt;<a href="../modules/router_routerresponse.html#builtresponseobject"><code>BuiltResponseObject</code></a>&lt;<code>AdditionalDataType</code>>></p>
+<p>Used internally when the response instance is finalized and ready to return the response data.</p>
+<h4 id="parameters_7">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th align="left">Name</th>
+<th align="left">Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>_request</code></td>
+<td align="left"><a href="router_routerrequest.default.html"><code>default</code></a>&lt;<code>AdditionalDataType</code>></td>
+</tr>
+<tr>
+<td align="left"><code>response</code></td>
+<td align="left"><a href="router_routerresponse.default.html"><code>default</code></a>&lt;<code>AdditionalDataType</code>></td>
+</tr>
+</tbody>
+</table>
+<h4 id="returns_7">Returns</h4>
+<p><code>Promise</code>&lt;<a href="../modules/router_routerresponse.html#builtresponseobject"><code>BuiltResponseObject</code></a>&lt;<code>AdditionalDataType</code>>></p>
+<h4 id="defined-in_15">Defined in</h4>
+<p><a href="https://github.com/Visualizememe/cloudflare-router/blob/79fba66/src/router/Router.ts#L402">router/Router.ts:402</a></p>
+<hr />
+<h3 id="fixpath">fixPath</h3>
+<p>▸ <strong>fixPath</strong>(<code>inputPath</code>): <code>string</code></p>
+<p>Returns a "fixed" path of the input path, setting up basePath and similar</p>
+<h4 id="parameters_8">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th align="left">Name</th>
+<th align="left">Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>inputPath</code></td>
+<td align="left"><code>string</code></td>
+</tr>
+</tbody>
+</table>
+<h4 id="returns_8">Returns</h4>
+<p><code>string</code></p>
+<h4 id="defined-in_16">Defined in</h4>
+<p><a href="https://github.com/Visualizememe/cloudflare-router/blob/79fba66/src/router/Router.ts#L93">router/Router.ts:93</a></p>
+<hr />
+<h3 id="get">get</h3>
+<p>▸ <strong>get</strong>(<code>path</code>, <code>handler</code>): <code>void</code></p>
+<p>Adds a handler for a request that hits this path using the GET HTTP method.</p>
+<h4 id="parameters_9">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th align="left">Name</th>
+<th align="left">Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>path</code></td>
+<td align="left"><code>string</code></td>
+</tr>
+<tr>
+<td align="left"><code>handler</code></td>
+<td align="left"><a href="../modules/router_route.html#routehandler"><code>RouteHandler</code></a>&lt;<code>AdditionalDataType</code>></td>
+</tr>
+</tbody>
+</table>
+<h4 id="returns_9">Returns</h4>
+<p><code>void</code></p>
+<h4 id="defined-in_17">Defined in</h4>
+<p><a href="https://github.com/Visualizememe/cloudflare-router/blob/79fba66/src/router/Router.ts#L244">router/Router.ts:244</a></p>
+<hr />
+<h3 id="getmainrouter">getMainRouter</h3>
+<p>▸ <strong>getMainRouter</strong>(): <a href="router_router.default.html"><code>default</code></a>&lt;<code>AdditionalDataType</code>></p>
+<p>Used internally for getting the router which is considered the main router. There can (<em>should</em>) only be one
+main router, otherwise unexpected issues may arise, and errors will most likely be thrown.</p>
+<h4 id="returns_10">Returns</h4>
+<p><a href="router_router.default.html"><code>default</code></a>&lt;<code>AdditionalDataType</code>></p>
+<h4 id="defined-in_18">Defined in</h4>
+<p><a href="https://github.com/Visualizememe/cloudflare-router/blob/79fba66/src/router/Router.ts#L494">router/Router.ts:494</a></p>
+<hr />
+<h3 id="head">head</h3>
+<p>▸ <strong>head</strong>(<code>path</code>, <code>handler</code>): <code>void</code></p>
+<p>Adds a handler for a request that hits this path using the HEAD HTTP method.</p>
+<h4 id="parameters_10">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th align="left">Name</th>
+<th align="left">Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>path</code></td>
+<td align="left"><code>string</code></td>
+</tr>
+<tr>
+<td align="left"><code>handler</code></td>
+<td align="left"><a href="../modules/router_route.html#routehandler"><code>RouteHandler</code></a>&lt;<code>AdditionalDataType</code>></td>
+</tr>
+</tbody>
+</table>
+<h4 id="returns_11">Returns</h4>
+<p><code>void</code></p>
+<h4 id="defined-in_19">Defined in</h4>
+<p><a href="https://github.com/Visualizememe/cloudflare-router/blob/79fba66/src/router/Router.ts#L286">router/Router.ts:286</a></p>
+<hr />
+<h3 id="init">init</h3>
+<p>▸ <strong>init</strong>(<code>newBasePath</code>, <code>parentRouter?</code>): <code>void</code></p>
+<p>Used internally when the router.use() method is called to update the descendants of the router (all connected
+routers and routes)</p>
+<h4 id="parameters_11">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th align="left">Name</th>
+<th align="left">Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>newBasePath</code></td>
+<td align="left"><code>string</code></td>
+</tr>
+<tr>
+<td align="left"><code>parentRouter?</code></td>
+<td align="left"><a href="router_router.default.html"><code>default</code></a>&lt;<code>AdditionalDataType</code>></td>
+</tr>
+</tbody>
+</table>
+<h4 id="returns_12">Returns</h4>
+<p><code>void</code></p>
+<h4 id="defined-in_20">Defined in</h4>
+<p><a href="https://github.com/Visualizememe/cloudflare-router/blob/79fba66/src/router/Router.ts#L80">router/Router.ts:80</a></p>
+<hr />
+<h3 id="options">options</h3>
+<p>▸ <strong>options</strong>(<code>path</code>, <code>handler</code>): <code>void</code></p>
+<p>Adds a handler for a request that hits this path using the OPTIONS HTTP method.</p>
+<h4 id="parameters_12">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th align="left">Name</th>
+<th align="left">Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>path</code></td>
+<td align="left"><code>string</code></td>
+</tr>
+<tr>
+<td align="left"><code>handler</code></td>
+<td align="left"><a href="../modules/router_route.html#routehandler"><code>RouteHandler</code></a>&lt;<code>AdditionalDataType</code>></td>
+</tr>
+</tbody>
+</table>
+<h4 id="returns_13">Returns</h4>
+<p><code>void</code></p>
+<h4 id="defined-in_21">Defined in</h4>
+<p><a href="https://github.com/Visualizememe/cloudflare-router/blob/79fba66/src/router/Router.ts#L272">router/Router.ts:272</a></p>
+<hr />
+<h3 id="post">post</h3>
+<p>▸ <strong>post</strong>(<code>path</code>, <code>handler</code>): <code>void</code></p>
+<p>Adds a handler for a request that hits this path using the POST HTTP method.</p>
+<h4 id="parameters_13">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th align="left">Name</th>
+<th align="left">Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>path</code></td>
+<td align="left"><code>string</code></td>
+</tr>
+<tr>
+<td align="left"><code>handler</code></td>
+<td align="left"><a href="../modules/router_route.html#routehandler"><code>RouteHandler</code></a>&lt;<code>AdditionalDataType</code>></td>
+</tr>
+</tbody>
+</table>
+<h4 id="returns_14">Returns</h4>
+<p><code>void</code></p>
+<h4 id="defined-in_22">Defined in</h4>
+<p><a href="https://github.com/Visualizememe/cloudflare-router/blob/79fba66/src/router/Router.ts#L258">router/Router.ts:258</a></p>
+<hr />
+<h3 id="processrequest">processRequest</h3>
+<p>▸ <strong>processRequest</strong>(<code>routerRequest</code>, <code>routerResponse</code>): <code>Promise</code>&lt;<a href="../modules/router_routerresponse.html#builtresponseobject"><code>BuiltResponseObject</code></a>&lt;<code>AdditionalDataType</code>>></p>
+<p>Used internally for further processing of the request (and getting a response from the application)</p>
+<h4 id="parameters_14">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th align="left">Name</th>
+<th align="left">Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>routerRequest</code></td>
+<td align="left"><a href="router_routerrequest.default.html"><code>default</code></a>&lt;<code>AdditionalDataType</code>></td>
+</tr>
+<tr>
+<td align="left"><code>routerResponse</code></td>
+<td align="left"><a href="router_routerresponse.default.html"><code>default</code></a>&lt;<code>AdditionalDataType</code>></td>
+</tr>
+</tbody>
+</table>
+<h4 id="returns_15">Returns</h4>
+<p><code>Promise</code>&lt;<a href="../modules/router_routerresponse.html#builtresponseobject"><code>BuiltResponseObject</code></a>&lt;<code>AdditionalDataType</code>>></p>
+<h4 id="defined-in_23">Defined in</h4>
+<p><a href="https://github.com/Visualizememe/cloudflare-router/blob/79fba66/src/router/Router.ts#L329">router/Router.ts:329</a></p>
+<hr />
+<h3 id="serverequest">serveRequest</h3>
+<p>▸ <strong>serveRequest</strong>(<code>incomingRequest</code>, <code>additionalData</code>): <code>Promise</code>&lt;<a href="../modules/router_routerresponse.html#builtresponseobject"><code>BuiltResponseObject</code></a>&lt;<code>AdditionalDataType</code>>></p>
+<p>The method to serve the incoming request and pass it on to cloudflare-router for processing. Use only this
+method unless you know what you're doing.</p>
+<h4 id="parameters_15">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th align="left">Name</th>
+<th align="left">Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>incomingRequest</code></td>
+<td align="left"><code>Request</code></td>
+</tr>
+<tr>
+<td align="left"><code>additionalData</code></td>
+<td align="left"><code>AdditionalDataType</code></td>
+</tr>
+</tbody>
+</table>
+<h4 id="returns_16">Returns</h4>
+<p><code>Promise</code>&lt;<a href="../modules/router_routerresponse.html#builtresponseobject"><code>BuiltResponseObject</code></a>&lt;<code>AdditionalDataType</code>>></p>
+<h4 id="defined-in_24">Defined in</h4>
+<p><a href="https://github.com/Visualizememe/cloudflare-router/blob/79fba66/src/router/Router.ts#L466">router/Router.ts:466</a></p>
+<hr />
+<h3 id="updateselfroutes">updateSelfRoutes</h3>
+<p>▸ <strong>updateSelfRoutes</strong>(): <code>void</code></p>
+<p>Updates the routes this router has set up. Used internally on router.init() (which is also called internally)</p>
+<h4 id="returns_17">Returns</h4>
+<p><code>void</code></p>
+<h4 id="defined-in_25">Defined in</h4>
+<p><a href="https://github.com/Visualizememe/cloudflare-router/blob/79fba66/src/router/Router.ts#L109">router/Router.ts:109</a></p>
+<hr />
+<h3 id="use">use</h3>
+<p>▸ <strong>use</strong>(<code>arg0</code>, <code>arg1?</code>): <code>void</code></p>
+<p>Sets up a middleware for a certain path. Use router.any() to process requests with any method</p>
+<h4 id="parameters_16">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th align="left">Name</th>
+<th align="left">Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>arg0</code></td>
+<td align="left"><code>string</code> | <a href="../modules/router_route.html#routehandler"><code>RouteHandler</code></a>&lt;<code>AdditionalDataType</code>></td>
+</tr>
+<tr>
+<td align="left"><code>arg1?</code></td>
+<td align="left"><a href="../modules/router_route.html#routehandler"><code>RouteHandler</code></a>&lt;<code>AdditionalDataType</code>></td>
+</tr>
+</tbody>
+</table>
+<h4 id="returns_18">Returns</h4>
+<p><code>void</code></p>
+<h4 id="defined-in_26">Defined in</h4>
+<p><a href="https://github.com/Visualizememe/cloudflare-router/blob/79fba66/src/router/Router.ts#L160">router/Router.ts:160</a></p>
+<hr />
+<h3 id="usebulk">useBulk</h3>
+<p>▸ <strong>useBulk</strong>(<code>list</code>): <code>void</code></p>
+<p>Makes it easier to set up a batch of .use "commands". Provide the array with (optional) pathname and the
+handler for it.</p>
+<h4 id="parameters_17">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th align="left">Name</th>
+<th align="left">Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>list</code></td>
+<td align="left">{ <code>handler</code>: <a href="../modules/router_route.html#routehandler"><code>RouteHandler</code></a>&lt;<code>AdditionalDataType</code>> ; <code>path?</code>: <code>string</code>  }[]</td>
+</tr>
+</tbody>
+</table>
+<h4 id="returns_19">Returns</h4>
+<p><code>void</code></p>
+<h4 id="defined-in_27">Defined in</h4>
+<p><a href="https://github.com/Visualizememe/cloudflare-router/blob/79fba66/src/router/Router.ts#L188">router/Router.ts:188</a></p>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="router_routepath.default.html" class="md-footer__link md-footer__link--prev" aria-label="Previous: Class: default&lt;AdditionalDataType\&gt;" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Class: default<AdditionalDataType\>
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="router_routerrequest.default.html" class="md-footer__link md-footer__link--next" aria-label="Next: Class: default&lt;AdditionalDataType\&gt;" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Class: default<AdditionalDataType\>
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.instant", "navigation.tabs", "navigation.sections"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../assets/javascripts/workers/search.477d984a.min.js", "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.82b56eb2.min.js"></script>
+      
+    
+  </body>
+</html>
