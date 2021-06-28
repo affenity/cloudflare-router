@@ -28,7 +28,7 @@
   "scripts": {
     "test": "jest",
     "build": "tsc --skipLibCheck",
-    "prepublish": "yarn build",
+    "prepublishOnly": "yarn build",
     "create-docs": "typedoc --plugin typedoc-plugin-markdown --hideBreadcrumbs --namedAnchors --excludeExternals --out docs src && mkdocs build"
   },
   "jest": {
