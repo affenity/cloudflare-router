@@ -235,6 +235,7 @@ export default class RouterResponse<AdditionalDataType extends unknown> {
      * @returns {this}
      */
     public setCustomResponse (response: Response): this {
+        this.responseOptions.type = "custom";
         this.responseOptions.customResponse = response;
         
         return this;
