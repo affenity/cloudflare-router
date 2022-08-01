@@ -1,0 +1,6 @@
+node_modules
+dist
+worker
+old
+tests
+yarn-error.log
