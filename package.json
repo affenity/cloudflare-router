@@ -2,7 +2,7 @@
   "name": "cloudflare-router",
   "version": "3.0.0-beta",
   "description": "An express-like router for Cloudflare Workers - created with TypeScript.",
-  "main": "dist/test-wrangler.js",
+  "main": "dist/index.js",
   "repository": "https://github.com/Visualizememe/cloudflare-router",
   "author": "Visualizememe",
   "license": "MIT",
@@ -26,6 +26,7 @@
   },
   "scripts": {
     "build": "tsc --skipLibCheck",
-    "go": "node dist"
+    "go": "node dist",
+    "prepublishOnly": "yarn build"
   }
 }
