@@ -5,7 +5,7 @@ import RouterRequest from "./RouterRequest";
 
 
 export type Methods = "ANY" | "GET" | "POST" | "PUT" | "PATCH" | "OPTIONS" | "HEAD" | "DELETE";
-export type RouteHandler = (request: any, response: any, next?: (proceed: boolean) => void) => any;
+export type RouteHandler = (request: RouterRequest, response: RouterResponse, next?: (proceed: boolean) => void) => any;
 
 const NO_APPEND_SLASH_IF_CHARACTERS = [
     "*",
@@ -303,7 +303,7 @@ export default class Router<Env = { [key: string]: string; }> {
             routerResponse.statusCode(404)
                 .status("Not found")
                 .text(`Error 404 - not found!`);
-    
+            
             // Returning a 404 error instead of throwing an error
             return this.finishResponse(routerRequest, routerResponse);
         }
