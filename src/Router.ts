@@ -5,7 +5,7 @@ import RouterRequest from "./RouterRequest";
 
 
 export type Methods = "ANY" | "GET" | "POST" | "PUT" | "PATCH" | "OPTIONS" | "HEAD" | "DELETE";
-export type RouteHandler = (request: RouterRequest, response: RouterResponse, next?: (proceed: boolean) => void) => any;
+export type RouteHandler<ExtraData = any> = (request: RouterRequest<ExtraData>, response: RouterResponse, next?: (proceed: boolean) => void) => any;
 
 const NO_APPEND_SLASH_IF_CHARACTERS = [
     "*",
@@ -30,11 +30,11 @@ class RouterPath {
 }
 
 
-class Route<DataType = any> {
+class Route<ExtraData = any> {
     public router: Router;
     public method: Methods;
     public path: RouterPath;
-    public handler: RouteHandler | Router;
+    public handler: RouteHandler<ExtraData> | Router;
     public isMiddleware: boolean;
     
     constructor (
@@ -66,8 +66,8 @@ type RouterOptions = {
     customResponseBuilder?: (routerResponse: RouterResponse) => Response;
 }
 
-export default class Router<Env = { [key: string]: string; }> {
-    public routes: Route[];
+export default class Router<ExtraDataType = any> {
+    public routes: Route<ExtraDataType>[];
     public basePath: string | null;
     public debugger: Debugger;
     public routerOptions: RouterOptions;
@@ -86,8 +86,8 @@ export default class Router<Env = { [key: string]: string; }> {
     }
     
     use (
-        arg0: string | Router<Env> | RouteHandler,
-        arg1?: Router<Env> | RouteHandler
+        arg0: string | Router<ExtraDataType> | RouteHandler<ExtraDataType>,
+        arg1?: Router<ExtraDataType> | RouteHandler<ExtraDataType>
     ) {
         if (typeof arg0 === "string") {
             // It's a base-path
@@ -104,7 +104,7 @@ export default class Router<Env = { [key: string]: string; }> {
                 handler.basePath = `${ this.basePath || "" }${ fixedUsePath }`;
             }
             
-            this.routes.push(new Route<any>(
+            this.routes.push(new Route<ExtraDataType>(
                 this,
                 {
                     handler,
@@ -114,7 +114,7 @@ export default class Router<Env = { [key: string]: string; }> {
                 }
             ));
         } else {
-            this.routes.push(new Route(
+            this.routes.push(new Route<ExtraDataType>(
                 this,
                 {
                     handler: arg0,
@@ -131,10 +131,10 @@ export default class Router<Env = { [key: string]: string; }> {
     addPathHandler (options: {
         method: Methods,
         path: string,
-        handler: RouteHandler,
+        handler: RouteHandler<ExtraDataType>,
         isMiddleware?: boolean
     }) {
-        this.routes.push(new Route<any>(
+        this.routes.push(new Route<ExtraDataType>(
             this,
             {
                 handler: options.handler,
@@ -145,7 +145,7 @@ export default class Router<Env = { [key: string]: string; }> {
         ));
     }
     
-    get (path: string, handler: RouteHandler) {
+    get (path: string, handler: RouteHandler<ExtraDataType>) {
         this.addPathHandler({
             path,
             handler,
@@ -154,7 +154,7 @@ export default class Router<Env = { [key: string]: string; }> {
         });
     }
     
-    post (path: string, handler: RouteHandler) {
+    post (path: string, handler: RouteHandler<ExtraDataType>) {
         this.addPathHandler({
             path,
             handler,
@@ -162,7 +162,7 @@ export default class Router<Env = { [key: string]: string; }> {
         });
     }
     
-    options (path: string, handler: RouteHandler) {
+    options (path: string, handler: RouteHandler<ExtraDataType>) {
         this.addPathHandler({
             path,
             handler,
@@ -170,7 +170,7 @@ export default class Router<Env = { [key: string]: string; }> {
         });
     }
     
-    head (path: string, handler: RouteHandler) {
+    head (path: string, handler: RouteHandler<ExtraDataType>) {
         this.addPathHandler({
             path,
             handler,
@@ -178,7 +178,7 @@ export default class Router<Env = { [key: string]: string; }> {
         });
     }
     
-    delete (path: string, handler: RouteHandler) {
+    delete (path: string, handler: RouteHandler<ExtraDataType>) {
         this.addPathHandler({
             path,
             handler,
@@ -186,7 +186,7 @@ export default class Router<Env = { [key: string]: string; }> {
         });
     }
     
-    any (path: string, handler: RouteHandler) {
+    any (path: string, handler: RouteHandler<ExtraDataType>) {
         this.addPathHandler({
             path,
             handler,
@@ -258,7 +258,7 @@ export default class Router<Env = { [key: string]: string; }> {
                     oldRoute.handler.refreshRoutes();
                 }
                 
-                newRoutes.push(new Route<any>(
+                newRoutes.push(new Route<ExtraDataType>(
                     this,
                     {
                         handler: oldRoute.handler,
@@ -268,7 +268,7 @@ export default class Router<Env = { [key: string]: string; }> {
                     }
                 ));
             } else {
-                newRoutes.push(new Route(
+                newRoutes.push(new Route<ExtraDataType>(
                     this,
                     {
                         handler: oldRoute.handler,
@@ -373,7 +373,7 @@ export default class Router<Env = { [key: string]: string; }> {
         routerResponse: RouterResponse
     ): Promise<boolean> {
         return new Promise(async (resolve, reject) => {
-            const handler = middleware.handler as RouteHandler;
+            const handler = middleware.handler as RouteHandler<ExtraDataType>;
             const hasNextCallback = handler.length === 3;
             
             if (hasNextCallback) {
@@ -393,10 +393,13 @@ export default class Router<Env = { [key: string]: string; }> {
         });
     }
     
-    public async serveRequest (request: Request) {
-        const routerRequest = new RouterRequest(
+    public async serveRequest (request: Request, extraData?: ExtraDataType) {
+        const routerRequest = new RouterRequest<ExtraDataType>(
             this,
-            request
+            request,
+            {
+                extraData: extraData || null
+            }
         );
         const routerResponse = new RouterResponse(
             this,

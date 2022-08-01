@@ -2,7 +2,7 @@ import Router, { Methods } from "./Router";
 import { parse, ParsedUrlQuery } from "querystring";
 
 
-export default class RouterRequest {
+export default class RouterRequest<ExtraDataType = any> {
     public router: Router;
     public rawRequest: Request;
     public url: string;
@@ -14,10 +14,14 @@ export default class RouterRequest {
     public body: any;
     public headers: Record<string, string>;
     public matchedParams: Record<string, string> | null;
+    public extraData?: ExtraDataType | null;
     
     constructor (
         router: Router,
-        rawRequest: Request
+        rawRequest: Request,
+        options: {
+            extraData?: ExtraDataType | null;
+        }
     ) {
         this.router = router;
         this.rawRequest = rawRequest;
@@ -30,6 +34,7 @@ export default class RouterRequest {
         this.body = this.rawRequest.body;
         this.headers = {};
         this.matchedParams = null;
+        this.extraData = options.extraData;
         
         this.parseHeaders();
     }
