@@ -299,7 +299,10 @@ export default class Router<ExtraDataType = any> {
         routerRequest: RouterRequest,
         routerResponse: RouterResponse
     ) {
-        const foundMatchingRoutes = this.getMatchingRoutesByPath(routerRequest.path);
+        const foundMatchingRoutes = this.getMatchingRoutesByPathAndMethod(
+            routerRequest.path,
+            routerRequest.method
+        );
         
         const middlewareMatches = foundMatchingRoutes
             .filter(matched => matched.route.isMiddleware)
