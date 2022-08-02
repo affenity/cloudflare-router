@@ -1,6 +1,6 @@
 {
   "name": "cloudflare-router",
-  "version": "3.0.0-beta3",
+  "version": "3.0.0-beta4",
   "description": "An express-like router for Cloudflare Workers - created with TypeScript.",
   "main": "dist/index.js",
   "repository": "https://github.com/Visualizememe/cloudflare-router",
