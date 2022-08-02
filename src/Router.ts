@@ -68,7 +68,7 @@ type RouterOptions = {
 
 export default class Router<ExtraDataType = any> {
     public routes: Route<ExtraDataType>[];
-    public basePath: string | null;
+    public basePath: RouterPath | null;
     public debugger: Debugger;
     public routerOptions: RouterOptions;
     
@@ -77,6 +77,10 @@ export default class Router<ExtraDataType = any> {
         this.basePath = null;
         this.debugger = debug("cloudflare-router");
         this.routerOptions = {};
+    }
+    
+    logInternal (message: string) {
+        this.debugger(`[${ this.basePath?.fixed ?? "n/a" }]: ${ message }`);
     }
     
     setCustomResponseBuilder (responseBuilder: RouterOptions["customResponseBuilder"]): this {
@@ -92,16 +96,19 @@ export default class Router<ExtraDataType = any> {
         if (typeof arg0 === "string") {
             // It's a base-path
             if (!arg1) {
-                this.debugger(`Failed to use router.use, 1st arg is string means 2nd argument needs to be provided!`);
+                this.logInternal(`Failed to use router.use, 1st arg is string means 2nd argument needs to be provided!`);
                 throw new Error(`Expected 2nd argument for router.use when 1st arg is string`);
             }
             
-            this.debugger(`Setting up router.use with sub: ${ arg0 } with handler as Router?: ${ arg1 instanceof Router }`);
+            this.logInternal(`Setting up router.use with sub: ${ arg0 } with handler as Router?: ${ arg1 instanceof Router }`);
             const handler = arg1;
             const fixedUsePath = this.fixUsePath(arg0);
             
             if (handler instanceof Router) {
-                handler.basePath = `${ this.basePath || "" }${ fixedUsePath }`;
+                handler.basePath = new RouterPath(
+                    arg0,
+                    fixedUsePath
+                );
             }
             
             this.routes.push(new Route<ExtraDataType>(
@@ -202,7 +209,7 @@ export default class Router<ExtraDataType = any> {
                 handler.getMatchingRoutesByPath(totalPath, fillArray);
             } else {
                 const checkMatch = route.matchesPath(totalPath);
-                this.debugger(`Match route ${ route.path.fixed } with ${ totalPath }: ${ checkMatch }`);
+                this.logInternal(`Match route ${ route.path.fixed } with ${ totalPath }: ${ checkMatch }`);
                 
                 if (checkMatch) {
                     fillArray.push({
@@ -224,38 +231,42 @@ export default class Router<ExtraDataType = any> {
     }
     
     getMatchingRoutesByPathAndMethod (path: string, method: Methods) {
-        this.debugger(`Matching routes with path: ${ path } and method: ${ method }`);
+        this.logInternal(`Matching routes with path: ${ path } and method: ${ method }`);
         const matchedByPath = this.getMatchingRoutesByPath(path);
         
-        this.debugger(`Found ${ matchedByPath.length } for path: ${ path }`);
+        this.logInternal(`Found ${ matchedByPath.length } for path: ${ path }`);
         const filteredByMethod = matchedByPath
             .filter(matched => [ method, "ANY" ].some(compareMethod => matched.route.method === compareMethod));
         
-        this.debugger(`Filtered matching routes by path to ${ filteredByMethod.length } by method!`);
+        this.logInternal(`Filtered matching routes by path to ${ filteredByMethod.length } by method!`);
         return filteredByMethod;
     }
     
     fixHandlerPath (inputPath: string) {
-        const fixed = `${ this.basePath || "" }${ inputPath.endsWith("/") ? inputPath : !NO_APPEND_SLASH_IF_CHARACTERS.some(char => inputPath.endsWith(char)) ? inputPath + "/" : inputPath }`;
-        this.debugger(`Fixed handler path from: ${ inputPath } to: ${ fixed }`);
+        const fixed = `${ this.basePath?.fixed ?? "" }${ inputPath.endsWith("/") ? inputPath : !NO_APPEND_SLASH_IF_CHARACTERS.some(char => inputPath.endsWith(char)) ? inputPath + "/" : inputPath }`;
+        this.logInternal(`Fixed handler path from: ${ inputPath } to: ${ fixed }`);
         return fixed;
     }
     
     fixUsePath (arg0: string) {
-        const fixed = `${ this.basePath || "" }/${ arg0.slice(arg0.startsWith("/") ? 1 : 0, arg0.endsWith("/") ? arg0.length - 1 : arg0.length) }`;
-        this.debugger(`Fixed use path from: ${ arg0 } to: ${ fixed }`);
+        const fixed = `${ this.basePath?.fixed ?? "" }/${ arg0.slice(arg0.startsWith("/") ? 1 : 0, arg0.endsWith("/") ? arg0.length - 1 : arg0.length) }`;
+        this.logInternal(`Fixed use path from: ${ arg0 } to: ${ fixed }`);
         
         return fixed;
     }
     
     refreshRoutes () {
-        this.debugger(`Refreshing routes for Router with base-path: ${ this.basePath }`);
+        this.logInternal(`Refreshing routes for Router with base-path: ${ this.basePath?.fixed ?? "N/A" }`);
         const newRoutes: Route[] = [];
         
         for (let oldRoute of this.routes) {
             if (oldRoute.isMiddleware) {
                 if (oldRoute.handler instanceof Router) {
                     oldRoute.handler.refreshRoutes();
+                    oldRoute.handler.basePath = new RouterPath(
+                        oldRoute.handler.basePath?.rawInput ?? "/",
+                        this.fixUsePath(oldRoute.handler.basePath?.rawInput ?? "/")
+                    );
                 }
                 
                 newRoutes.push(new Route<ExtraDataType>(
@@ -280,7 +291,7 @@ export default class Router<ExtraDataType = any> {
             }
         }
         
-        this.debugger(`Successfully updated to ${ newRoutes.length } new routes.`);
+        this.logInternal(`Successfully updated to ${ newRoutes.length } new routes.`);
         this.routes = newRoutes;
     }
     
@@ -328,7 +339,7 @@ export default class Router<ExtraDataType = any> {
             }
             
             if (middlewareSuccess instanceof Error) {
-                this.debugger(`Middleware for route ${ middlewareMatch.route.path.fixed } failed with error! ${ middlewareSuccess.name }, ${ middlewareSuccess.message }`);
+                this.logInternal(`Middleware for route ${ middlewareMatch.route.path.fixed } failed with error! ${ middlewareSuccess.name }, ${ middlewareSuccess.message }`);
                 allMiddlewaresSuccessful = false;
                 break;
             }
