@@ -260,14 +260,16 @@ export default class Router<ExtraDataType = any> {
         const newRoutes: Route[] = [];
         
         for (let oldRoute of this.routes) {
+            if (oldRoute.handler instanceof Router) {
+                // IMPORTANT: Needs to have new basePath set BEFORE refreshing routes, otherwise weird bug occurs (as base path isn't defined etc)
+                oldRoute.handler.basePath = new RouterPath(
+                    oldRoute.handler.basePath?.rawInput ?? "/",
+                    this.fixUsePath(oldRoute.handler.basePath?.rawInput ?? "/")
+                );
+                oldRoute.handler.refreshRoutes();
+            }
+            
             if (oldRoute.isMiddleware) {
-                if (oldRoute.handler instanceof Router) {
-                    oldRoute.handler.refreshRoutes();
-                    oldRoute.handler.basePath = new RouterPath(
-                        oldRoute.handler.basePath?.rawInput ?? "/",
-                        this.fixUsePath(oldRoute.handler.basePath?.rawInput ?? "/")
-                    );
-                }
                 
                 newRoutes.push(new Route<ExtraDataType>(
                     this,
