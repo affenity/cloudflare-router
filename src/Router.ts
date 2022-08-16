@@ -64,7 +64,7 @@ class Route<ExtraData = any> {
 
 type RouterOptions = {
     customResponseBuilder?: (routerResponse: RouterResponse) => Response;
-    onErrorCallback?: (request: RouterRequest, response: RouterResponse) => Promise<any>;
+    onErrorCallback?: (request: RouterRequest, response: RouterResponse, error: Error) => Promise<any>;
     onNotFoundCallback?: (request: RouterRequest, response: RouterResponse) => Promise<any>;
 }
 
@@ -91,7 +91,7 @@ export default class Router<ExtraDataType = any> {
         return this;
     }
     
-    handleOnError (callback: (request: RouterRequest<ExtraDataType>, response: RouterResponse) => any) {
+    handleOnError (callback: (request: RouterRequest<ExtraDataType>, response: RouterResponse, error: Error) => any) {
         this.routerOptions.onErrorCallback = callback;
     }
     
@@ -444,7 +444,7 @@ export default class Router<ExtraDataType = any> {
             .catch(async (e: Error) => {
                 if (this.routerOptions.onErrorCallback) {
                     await Promise.resolve()
-                        .then(() => this.routerOptions.onErrorCallback!(routerRequest, routerResponse));
+                        .then(() => this.routerOptions.onErrorCallback!(routerRequest, routerResponse, e));
                     
                     return this.finishResponse(routerRequest, routerResponse);
                 } else {
