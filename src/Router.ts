@@ -64,6 +64,8 @@ class Route<ExtraData = any> {
 
 type RouterOptions = {
     customResponseBuilder?: (routerResponse: RouterResponse) => Response;
+    onErrorCallback?: (request: RouterRequest, response: RouterResponse) => Promise<any>;
+    onNotFoundCallback?: (request: RouterRequest, response: RouterResponse) => Promise<any>;
 }
 
 export default class Router<ExtraDataType = any> {
@@ -87,6 +89,14 @@ export default class Router<ExtraDataType = any> {
         this.routerOptions.customResponseBuilder = responseBuilder;
         
         return this;
+    }
+    
+    handleOnError (callback: (request: RouterRequest<ExtraDataType>, response: RouterResponse) => any) {
+        this.routerOptions.onErrorCallback = callback;
+    }
+    
+    handleNotFound (callback: (request: RouterRequest<ExtraDataType>, response: RouterResponse) => any) {
+        this.routerOptions.onNotFoundCallback = callback;
     }
     
     use (
@@ -298,7 +308,7 @@ export default class Router<ExtraDataType = any> {
     }
     
     public async processRequest (
-        routerRequest: RouterRequest,
+        routerRequest: RouterRequest<ExtraDataType>,
         routerResponse: RouterResponse
     ) {
         const foundMatchingRoutes = this.getMatchingRoutesByPathAndMethod(
@@ -315,10 +325,15 @@ export default class Router<ExtraDataType = any> {
             .find(s => !!s);
         
         if (!responseMatch) {
-            // throw new Error(`Could not find a response handler for the request with route: ${ routerRequest.method } ${ routerRequest.path }`);
-            routerResponse.statusCode(404)
-                .status("Not found")
-                .text(`Error 404 - not found!`);
+            if (this.routerOptions.onNotFoundCallback) {
+                await Promise.resolve()
+                    .then(() => this.routerOptions.onNotFoundCallback!(routerRequest, routerResponse));
+            } else {
+                // throw new Error(`Could not find a response handler for the request with route: ${ routerRequest.method } ${ routerRequest.path }`);
+                routerResponse.statusCode(404)
+                    .status("Not found")
+                    .text(`Error 404 - not found!`);
+            }
             
             // Returning a 404 error instead of throwing an error
             return this.finishResponse(routerRequest, routerResponse);
@@ -425,6 +440,16 @@ export default class Router<ExtraDataType = any> {
         return this.processRequest(
             routerRequest,
             routerResponse
-        );
+        )
+            .catch(async (e: Error) => {
+                if (this.routerOptions.onErrorCallback) {
+                    await Promise.resolve()
+                        .then(() => this.routerOptions.onErrorCallback!(routerRequest, routerResponse));
+                    
+                    return this.finishResponse(routerRequest, routerResponse);
+                } else {
+                    throw e;
+                }
+            });
     }
 };
