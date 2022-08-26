@@ -91,7 +91,7 @@ export default class RouterResponse {
     }
     
     public setHeader (name: string, value: string) {
-        this.responseOptions[name] = value;
+        this.responseOptions.headers[name] = value;
         
         return this;
     }
